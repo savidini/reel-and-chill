@@ -1,3 +1,4 @@
+import { HeaderControls } from '../components/GuidePreferences';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { filterFish, fishLabel, matchesText, nameOf, sceneFor, titleCase, weight } from '../guide';
 import { Glyph, href, Sprite, windowsFor, type ViewProps } from './shared';
@@ -56,7 +57,7 @@ export function Pocket({ catalog, articles, route, unit, onOriginal }: ViewProps
   const openIndex = openFish ? catalog.fish.indexOf(openFish) : 0;
 
   return <div className="alt-app pocket-app">
-    <header className="p-header"><a className="p-brand" href={href('home')} aria-label="Reel & Chill home"><span><Glyph name="fish" size={26}/></span><strong>Reel &amp; Chill<small>Your Cast n Chill companion.</small></strong></a></header>
+    <header className="p-header"><a className="p-brand" href={href('home')} aria-label="Reel & Chill home"><span><Glyph name="fish" size={26}/></span><strong>Reel &amp; Chill<small>Your Cast n Chill companion.</small></strong></a><HeaderControls/></header>
     <main id="alternative-content" className="p-desk" tabIndex={-1}>
       <nav className="p-tabs" aria-label="Catch book pages"><a className={page==='fish'?'is-active':''} href={href('fish')}><Glyph name="fish"/><span>My fish</span><small>{totalCaught}/{catalog.fish.length}</small></a><a className={page==='places'?'is-active':''} href={href('waters')}><Glyph name="map"/><span>Postcards</span></a><a className={page==='notes'?'is-active':''} href={href('handbook')}><Glyph name="book"/><span>Field notes</span></a><a className={page==='achievements'?'is-active':''} href={href('achievements')}><Glyph name="star"/><span>Achievements</span></a></nav>
       <div className="p-book"><div className="p-binding" aria-hidden="true"><i/><i/><i/><i/><i/></div>

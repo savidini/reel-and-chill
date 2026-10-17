@@ -15,7 +15,7 @@ ARTIFACTS = ROOT / 'artifacts' / 'redesigns'
 DESIGNS = {'journal': 'Sunday Cast', 'expedition': 'Drift', 'sonar': 'Sonar', 'studio': 'Pocket'}
 LAYOUTS = {
     'journal': {'home': '/home', 'species': '/fish', 'fish': '/fish/northern-pike', 'places': '/waters', 'place': '/waters/lake1-spot2', 'gear': '/tackle', 'stories': '/handbook', 'story': '/handbook/cabin-restoration'},
-    'expedition': {'home': '/home', 'place': '/waters/lake1-spot2', 'fish': '/fish/northern-pike', 'species': '/fish', 'ice': '/waters/ice1-spot1', 'cabin': '/waters/cabin1', 'notes': '/handbook', 'story': '/handbook/ice-fishing'},
+    'expedition': {'home': '/home', 'place': '/waters/lake1-spot2', 'ocean': '/waters/ocean1-spot2', 'fish': '/fish/northern-pike', 'species': '/fish', 'ice': '/waters/ice1-spot1', 'cabin': '/waters/cabin1', 'notes': '/handbook', 'story': '/handbook/ice-fishing'},
     'sonar': {'database': '/home', 'fish': '/fish/northern-pike', 'equipment': '/tackle', 'gear': '/tackle/rod10', 'notes': '/handbook', 'note': '/handbook/fighting-fish'},
     'studio': {'book': '/home', 'card': '/fish/northern-pike', 'postcards': '/waters', 'postcard': '/waters/lake1-spot2', 'notes': '/handbook', 'note': '/handbook/fighting-fish'},
 }
@@ -74,6 +74,11 @@ def main(screenshots_only=False, tasks_only=False, only_design=None):
                 checks += 1
                 if not page.evaluate('document.documentElement.scrollWidth <= document.documentElement.clientWidth+1'):
                     failures.append({'screen':label,'failure':'page overflow'})
+                if page.locator('.d-specimen .d-back').count():
+                    back = page.locator('.d-specimen .d-back').bounding_box()
+                    header = page.locator('.d-header').bounding_box()
+                    if back['y'] < header['y'] + header['height']:
+                        failures.append({'screen':label,'failure':'specimen Back link covered by header'})
                 if not modal:
                     for selector in ['.design-trigger','.display-trigger']:
                         box=page.locator(selector).bounding_box()

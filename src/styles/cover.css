@@ -1,16 +1,26 @@
 /* The cover pairs the original scene with a compact reference desk. */
 .home-page {
-  max-width: 1392px;
+  --cover-pad: 36px;
+  max-width: 1600px;
   margin: auto;
-  padding: 40px 36px 48px;
+  padding: 0 var(--cover-pad) 48px;
 }
 .welcome-cover {
   display: grid;
   grid-template-columns: minmax(300px, .9fr) minmax(0, 1.35fr);
   align-items: center;
   gap: 36px;
-  padding-bottom: 36px;
-  border-bottom: 1px solid var(--line);
+  margin-inline: calc(-1 * var(--cover-pad));
+  padding: 48px var(--cover-pad) 36px;
+  --ink: #e7eee3;
+  --muted: #afc3b9;
+  --gold: #c9dba5;
+  --panel: #10221f;
+  --line: #324b41;
+  --control-line: #547261;
+  --selected-bg: #20372c;
+  color: var(--ink);
+  background: #05080f;
 }
 .welcome-heading { min-width: 0; }
 .welcome-heading .eyebrow { color: var(--gold); margin-bottom: 20px; }
@@ -43,15 +53,8 @@
 .guide-stats > div:first-child { padding-left: 0; border: 0; }
 .guide-stats dt { color: var(--muted); font-size: 13px; }
 .guide-stats dd { order: -1; margin: 0; font-size: 28px; line-height: 1.2; font-weight: 500; font-variant-numeric: tabular-nums; }
-.welcome-scene { min-width: 0; background: var(--panel); padding: 8px 8px 0; border: 1px solid var(--line); border-radius: 8px; }
-.ascii-frame { line-height: 0; }
-.ascii-lake { display: block; width: 100%; height: auto; aspect-ratio: 2; background: #090c18; }
-.scene-toolbar { display: flex; align-items: center; gap: 12px; padding: 10px 4px; line-height: 1.4; min-height: 64px; }
-.scene-toolbar .button { font-size: 13px; padding: 12px 14px; gap: 12px; }
-.scene-caption { color: var(--muted); font-size: 12px; margin-left: auto; }
-.scene-toggle { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 8px; border-radius: 4px; font-size: 13px; color: var(--muted); margin-left: auto; }
-.scene-toggle > span { font-size: 11px; width: 12px; text-align: center; }
-.scene-toggle:hover { background: var(--surface-muted); color: var(--gold); }
+.welcome-scene { min-width: 0; }
+.welcome-atlas { margin-top: 16px; }
 .chapter-index { margin-top: 30px; }
 .chapter-index-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
 .chapter-index-heading h2 { margin: 0; font-size: 24px; }
@@ -87,12 +90,12 @@
 .chapter-card.illustrated > svg { margin-left: -16px; }
 
 @container book (max-width: 1080px) {
-  .home-page { padding: 32px 24px 40px; }
+  .home-page { --cover-pad: 24px; padding-bottom: 40px; }
   .welcome-cover { grid-template-columns: minmax(260px, .9fr) minmax(0, 1.2fr); gap: 24px; }
   .welcome-heading h1 { font-size: 32px; }
   .welcome-heading h1 span { font-size: 24px; }
   .home-search-button { font-size: 13px; }
-  .home-search-button kbd, .scene-caption { display: none; }
+  .home-search-button kbd { display: none; }
   .chapter-card { padding: 16px; gap: 10px; grid-template-columns: 28px minmax(0, 1fr) 16px; }
   .chapter-card h3 { font-size: 15px; }
   .illustrated h3 { font-size: 18px; }
@@ -101,12 +104,8 @@
 }
 @container book (max-width: 720px) {
   .welcome-cover { grid-template-columns: 1fr; gap: 26px; }
-  .welcome-heading { display: grid; grid-template-columns: 1fr 220px; gap: 0 24px; }
-  .welcome-heading .eyebrow, .welcome-heading h1, .welcome-heading > p { grid-column: 1; }
-  .welcome-heading > p { margin-bottom: 0; font-size: 15px; }
-  .home-search-button { grid-column: 2; grid-row: 2; align-self: center; }
-  .guide-stats { grid-column: 2; grid-row: 3; margin-top: 20px; align-self: center; }
-  .guide-stats > div { padding: 0 12px; }
+  .welcome-heading { max-width: 480px; }
+  .welcome-cover { padding-top: 36px; }
   .guide-stats dd { font-size: 24px; }
   .chapter-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   .chapter-card.illustrated { grid-column: 1 / -1; grid-template-columns: 120px minmax(0, 1fr) 16px; }
@@ -115,7 +114,7 @@
   .chapter-card.illustrated > svg { margin-left: -12px; }
 }
 @container book (max-width: 600px) {
-  .home-page { padding: 28px 16px 36px; }
+  .home-page { --cover-pad: 16px; padding-bottom: 36px; }
   .welcome-cover { padding-bottom: 28px; gap: 24px; }
   .welcome-heading { display: block; }
   .welcome-heading .eyebrow { margin-bottom: 16px; }
@@ -124,8 +123,6 @@
   .guide-stats { margin-top: 24px; }
   .guide-stats > div { padding: 0 20px; }
   .guide-stats dd { font-size: 26px; }
-  .welcome-scene { padding: 6px 6px 0; }
-  .scene-toolbar { padding: 8px 2px; }
   .chapter-index { margin-top: 24px; }
   .chapter-index-heading h2 { font-size: 22px; }
   .chapter-grid { grid-template-columns: 1fr; gap: 12px; }
@@ -136,7 +133,7 @@
   .illustrated h3 { font-size: 18px; }
 }
 @media print {
-  .home-search-button, .scene-toggle, .scene-caption { display: none; }
+  .home-search-button, .welcome-atlas { display: none; }
   .home-page { padding: 20px; }
   .welcome-cover { grid-template-columns: 1fr 1fr; }
   .chapter-card { break-inside: avoid; }

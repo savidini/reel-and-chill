@@ -1,39 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
 import { designs, type Design } from '../useDesign';
 import { Icon } from './Icon';
-import { positionPopover } from './positionPopover';
+import type { PreferencePopover } from './GuidePreferences';
 
-export function DesignSwitcher({ design, onChange }: { design: Design; onChange: (design: Design) => void }) {
-  const trigger = useRef<HTMLButtonElement>(null);
-  const panel = useRef<HTMLDivElement>(null);
-  const [open, setOpen] = useState(false);
+export function DesignSwitcher({ design, onChange, control }: { design: Design; onChange: (design: Design) => void; control: PreferencePopover }) {
+  const { trigger, panel, onBeforeToggle, onToggle } = control;
   const selected = designs.find(option => option.id === design)!;
-  const position = () => positionPopover(trigger.current, panel.current, 850);
-  useEffect(() => {
-    const close = () => panel.current?.hidePopover();
-    window.addEventListener('hashchange', close);
-    window.addEventListener('resize', position);
-    return () => {
-      window.removeEventListener('hashchange', close);
-      window.removeEventListener('resize', position);
-    };
-  }, []);
-  // A design can also change the navigation width while this panel is open.
-  useEffect(position, [design]);
-
-  return <>
-    <button ref={trigger} className="design-trigger" popoverTarget="design-picker" aria-haspopup="dialog" aria-expanded={open} aria-label={`Change design, current: ${selected.name}`}>
-      <Icon name="grid" size={18}/><span>Design<span className="design-current"> · {selected.name}</span></span><span className="display-chevron" aria-hidden="true">⌄</span>
-    </button>
-    <div ref={panel} id="design-picker" className="design-panel" popover="auto" role="dialog" aria-labelledby="design-picker-title"
-      onBeforeToggle={event => { if (event.newState === 'open') position(); }}
-      onToggle={event => {
-        setOpen(event.newState === 'open');
-        if (event.newState === 'open') {
-          position();
-          panel.current?.querySelector<HTMLInputElement>('input:checked')?.focus({ preventScroll: true });
-        }
-      }}
+  return <div ref={panel} id="design-picker" className="design-panel" popover="auto" role="dialog" aria-labelledby="design-picker-title"
+      onBeforeToggle={onBeforeToggle} onToggle={onToggle}
       onBlur={event => {
         if (event.relatedTarget instanceof Node && !event.currentTarget.contains(event.relatedTarget) && event.relatedTarget !== trigger.current) panel.current?.hidePopover();
       }}>
@@ -46,6 +19,5 @@ export function DesignSwitcher({ design, onChange }: { design: Design; onChange:
         </label>)}
       </div></fieldset>
       <div className="design-panel-footer"><span role="status">{selected.name} selected · changes apply instantly</span><button popoverTarget="design-picker" popoverTargetAction="hide" className="button">Done</button></div>
-    </div>
-  </>;
+    </div>;
 }

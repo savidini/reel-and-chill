@@ -4,7 +4,19 @@
 
 [Open Reel & Chill](https://savidini.de/reel-and-chill/) · [Source on GitHub](https://github.com/savidini/reel-and-chill)
 
-An illustrated handbook for the Steam edition of **Cast n Chill**, with five selectable designs and actual game sprites. The Original design keeps its pixel wordmark, warm paper and dark pine themes, and the [Alpine Dawn](https://ascii.rest/alpine-dawn/) scene from ascii.rest. No accounts. Pocket includes a manual checklist saved only in this browser; it never reads or changes game saves.
+An illustrated handbook for the Steam edition of **Cast n Chill**, with five selectable designs and actual game sprites. The Original design pairs its pixel wordmark and paper chapters with [Aurora Fjord](https://ascii.rest/aurora-fjord/); Drift adds [Deep Reef](https://ascii.rest/deep-reef/) below its ocean landscapes. Both ASCII scenes are bundled locally from ascii.rest. No accounts. Pocket includes a manual checklist saved only in this browser; it never reads or changes game saves.
+
+## Design gallery
+
+Choose **Design** in any header; **Display** contains appearance and weight units. Original is the default. These are captures of the final interface in light appearance; click a desktop or mobile preview to open it at full size.
+
+| Design | Desktop · 1440 × 1000 | Mobile · 390 × 844 |
+| --- | --- | --- |
+| **Original**<br>A pine-toned welcome with Aurora Fjord, followed by the complete paper field guide. | [<img src="docs/screenshots/original-desktop.png" alt="Original desktop interface" width="480">](docs/screenshots/original-desktop.png) | [<img src="docs/screenshots/original-mobile.png" alt="Original mobile interface" width="180">](docs/screenshots/original-mobile.png) |
+| **Sunday Cast**<br>A fishing magazine with bold type, illustrated stories, and specimen pages. | [<img src="docs/screenshots/sunday-cast-desktop.png" alt="Sunday Cast desktop interface" width="480">](docs/screenshots/sunday-cast-desktop.png) | [<img src="docs/screenshots/sunday-cast-mobile.png" alt="Sunday Cast mobile interface" width="180">](docs/screenshots/sunday-cast-mobile.png) |
+| **Drift**<br>A journey through game landscapes, with Deep Reef beneath ocean destinations. | [<img src="docs/screenshots/drift-desktop.png" alt="Drift desktop interface" width="480">](docs/screenshots/drift-desktop.png) | [<img src="docs/screenshots/drift-mobile.png" alt="Drift mobile interface" width="180">](docs/screenshots/drift-mobile.png) |
+| **Sonar**<br>A compact reference desk for searching, filtering, and inspecting records. | [<img src="docs/screenshots/sonar-desktop.png" alt="Sonar desktop interface" width="480">](docs/screenshots/sonar-desktop.png) | [<img src="docs/screenshots/sonar-mobile.png" alt="Sonar mobile interface" width="180">](docs/screenshots/sonar-mobile.png) |
+| **Pocket**<br>A rounded paper catch book with collectible cards and a browser-local checklist. | [<img src="docs/screenshots/pocket-desktop.png" alt="Pocket desktop interface" width="480">](docs/screenshots/pocket-desktop.png) | [<img src="docs/screenshots/pocket-mobile.png" alt="Pocket mobile interface" width="180">](docs/screenshots/pocket-mobile.png) |
 
 The populated catalog targets **v1.3.0 (160)**, Steam build **23698998**:
 
@@ -26,9 +38,9 @@ The populated catalog targets **v1.3.0 (160)**, Steam build **23698998**:
 
 Use the grid/list buttons beside **Sort** to change the atlas layout. List view keeps catch conditions and size labels visible in shorter rows, useful beside the game or on a phone. The choice stays selected when opening a fish and returning to the atlas.
 
-Original is the default. Open **Design** at the top right to choose a different interface. These are independent React views with their own navigation, composition, and detail pages. They share the imported catalog and reference utilities.
+Original is the default. Open **Design** in the header to choose a different interface. These are independent React views with their own navigation, composition, and detail pages. They share the imported catalog and reference utilities.
 
-- **Original:** the complete nine-chapter field guide and animated ASCII lake.
+- **Original:** the complete nine-chapter field guide and animated Aurora Fjord welcome.
 - **Sunday Cast:** a broadsheet fishing magazine, with a current issue, long-form stories, an alphabetical species index, and natural-history specimen pages.
 - **Drift:** a landscape-led journey through the waters. Browse destinations with the numbered strip, previous/next controls, or the searchable **All waters** directory. Explore the fish below each scene and open a full-page specimen for catch windows and compatible tackle. A separate species search and quiet reading pages keep the reference close at hand.
 - **Sonar:** a reference desk with filters, a sortable species table, and a separate record inspector. Equipment and field notes have dedicated views. Use `/` or `Ctrl/Cmd+K` to search, arrows to browse results, and Enter to open a record.
@@ -36,7 +48,7 @@ Original is the default. Open **Design** at the top right to choose a different 
 
 The alternatives deliberately curate the content around their main task. Each provides a link to the complete Original guide. Standard fish, water, article, and achievement links remain usable when changing designs. Achievement searches and categories travel with the link; other view-specific searches and filters belong to each interface.
 
-The design, **Light / Dark / System** appearance, and **lb / oz / kg** choice are saved locally. The design and appearance synchronize between tabs. Preferences apply before the app loads. Open the appearance button (the sun/moon icon on phones) to change theme or weight units. Both popovers support keyboard selection, Escape, and outside dismissal.
+The design, **Light / Dark / System** appearance, and **lb / oz / kg** choice are saved locally. The design and appearance synchronize between tabs. Preferences apply before the app loads. Open **Display** to change theme or weight units. The two controls follow each design’s header layout, and the picker stays open with keyboard focus intact when switching between all five designs. Both popovers support keyboard selection, Escape, and outside dismissal.
 
 ## Run from source
 
@@ -95,7 +107,7 @@ The importer only reads the installed production bundles and Steam version metad
 
 `assets:fetch` downloads the 12 landscape illustrations listed in `scripts/scenes.json` from the [official press kit](https://www.wombatbrawler.com/cnc-press-kit) and prepares local WebP files. Existing files are reused; pass `--force` to refresh them. Internet is needed to refresh these downloads; builds use the committed copies. Fonts and licences are bundled in `public/fonts/`: Fira Sans, DejaVu Sans Mono, and the original Cast Pixel display alphabet. Regenerate Cast Pixel with `python3 scripts/build-pixel-font.py` when fontTools is installed; normal builds use the bundled font.
 
-The Alpine Dawn scene and canvas renderer are bundled in `src/vendor/ascii/`, under the original MIT licence by bas3line. The artwork keeps its full composition and palette, with a separate play/pause control. It respects reduced motion and stops rendering when hidden or offscreen. No CDN or external runtime requests are needed.
+The Aurora Fjord and Deep Reef scenes and canvas renderer are bundled in `src/vendor/ascii/`, under the original MIT licence by bas3line. Each scene loads only where selected, keeps its full 2:1 composition and palette, and includes attribution and an independent play/pause control. Original uses Aurora Fjord on the welcome page; Drift uses Deep Reef only on ocean destinations. Pausing and resuming preserves the playhead. It respects reduced motion and stops rendering when hidden or offscreen. No CDN or external runtime requests are needed.
 
 ## After a game update
 
@@ -118,6 +130,7 @@ npm test
 npm run build
 npm run test:smoke
 npm run test:e2e
+npm run test:scenes
 ```
 
 Browser QA requires Python Playwright and its Chromium browser:
@@ -142,6 +155,16 @@ Run `npm run test:e2e -- --designs-only` for the independent interfaces. It chec
 Use `npm run test:e2e -- --drift-only` to review Drift on its own. This includes all 17 destination headings at phone, tablet, and desktop widths; the water directory's search, visible results, keyboard focus, and short-window layout; and the place → fish → catch-window flow with browser Back/Forward. Add `--design-screenshots` for a quick visual pass or `--design-tasks` for interaction checks. Drift screenshots include the landscape, catch section, specimen, notes, and directory; its report is `artifacts/redesigns/expedition-report.json`.
 
 Run `npm run test:e2e -- --achievements-only` for achievement navigation in all five designs, searches and category filters, keyboard disclosure, related links, weight units, browser Back/reload, and preserved searches when switching designs. It checks expanded guidance in both themes at 320–1920px; screenshots and the report are in ignored `artifacts/achievements/`.
+
+Run `npm run test:scenes` for both local scene bundles, full 2:1 proportions, reduced motion, pause/resume continuity, offscreen suspension, simulated tab visibility changes, resize, route removal/observer cleanup, and Back/reload. It checks all five ocean destinations and confirms inland waters have no reef. Scene evidence is in ignored `artifacts/scenes/`.
+
+To refresh this README’s ten screenshots after changing the UI:
+
+```sh
+npm run screenshots:readme
+```
+
+The command builds first, then uses isolated headless Chromium with fixed 1440 × 1000 and 390 × 844 viewports, light appearance, reduced motion, loaded fonts and images, closed menus, and fresh browser preferences. The still animation frame is repeatable. Captures go to `docs/screenshots/`, outside the deployed `public/` and `dist/` assets. Review and commit all ten PNGs with their UI changes.
 
 ## Data notes
 

@@ -1,7 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
 import type { ThemePreference } from '../useTheme';
 import { Icon } from './Icon';
-import { positionPopover } from './positionPopover';
+import type { PreferencePopover } from './GuidePreferences';
 
 const themes: { value: ThemePreference; label: string }[] = [
   { value: 'light', label: 'Light' },
@@ -9,45 +8,16 @@ const themes: { value: ThemePreference; label: string }[] = [
   { value: 'system', label: 'System' },
 ];
 
-export function DisplaySettings({ theme, setTheme, unit, setUnit }: {
+export function DisplaySettings({ theme, setTheme, unit, setUnit, control }: {
+  control: PreferencePopover;
   theme: ThemePreference;
   setTheme: (value: ThemePreference) => void;
   unit: string;
   setUnit: (value: string) => void;
 }) {
-  const trigger = useRef<HTMLButtonElement>(null);
-  const panel = useRef<HTMLDivElement>(null);
-  const [open, setOpen] = useState(false);
-  const position = () => positionPopover(trigger.current, panel.current, 304);
-  useEffect(position);
-  useEffect(() => {
-    const close = () => panel.current?.hidePopover();
-    window.addEventListener('hashchange', close);
-    window.addEventListener('resize', position);
-    return () => {
-      window.removeEventListener('hashchange', close);
-      window.removeEventListener('resize', position);
-    };
-  }, []);
-
-  return <>
-    <button ref={trigger} className="display-trigger" popoverTarget="display-settings"
-      aria-label="Display settings" aria-haspopup="dialog" aria-expanded={open}
-      title="Appearance and weight units">
-      <Icon name={theme} size={18}/><span>{themes.find(t => t.value === theme)?.label}</span>
-      <span className="display-chevron" aria-hidden="true">⌄</span>
-    </button>
-    <div ref={panel} id="display-settings" className="display-panel" popover="auto"
-      role="dialog" aria-labelledby="display-title"
-      onBeforeToggle={e => { if (e.newState === 'open') position(); }}
-      onToggle={e => {
-        const visible = e.newState === 'open';
-        setOpen(visible);
-        if (visible) {
-          position();
-          panel.current?.querySelector<HTMLInputElement>('input[name="appearance"]:checked')?.focus({ preventScroll: true });
-        }
-      }}
+  const { trigger, panel, onBeforeToggle, onToggle } = control;
+  return <div ref={panel} id="display-settings" className="display-panel" popover="auto" role="dialog" aria-labelledby="display-title"
+      onBeforeToggle={onBeforeToggle} onToggle={onToggle}
       onBlur={e => {
         if (e.relatedTarget instanceof Node && !e.currentTarget.contains(e.relatedTarget) && e.relatedTarget !== trigger.current) panel.current?.hidePopover();
       }}>
@@ -67,6 +37,5 @@ export function DisplaySettings({ theme, setTheme, unit, setUnit }: {
           <span>{option.label}</span><span className="option-check" aria-hidden="true">✓</span>
         </label>)}
       </div></fieldset>
-    </div>
-  </>;
+    </div>;
 }

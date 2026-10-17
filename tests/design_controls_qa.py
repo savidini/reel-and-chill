@@ -1,5 +1,6 @@
 """Both popovers must stay usable in tall mastheads and short windows."""
 from playwright.sync_api import expect
+from theme_qa import CONTRAST_AUDIT
 from display_qa import open_display, choose_theme
 
 
@@ -15,9 +16,15 @@ def check_design_controls(page, visit):
         expect(page.locator('html')).to_have_attribute('data-design', design)
         for appearance in ['light', 'dark']:
             choose_theme(page, appearance)
-            for width, height in [(1440, 900), (1024, 360), (640, 360), (320, 360)]:
+            for width, height in [(1920, 900), (1440, 900), (1280, 720), (1024, 360), (820, 720), (640, 360), (390, 844), (320, 360)]:
                 page.set_viewport_size({'width': width, 'height': height})
                 page.evaluate('scrollTo(0, 0)')
+                assert page.evaluate('document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1')
+                controls = page.locator('header .header-controls')
+                expect(controls).to_have_count(1)
+                for trigger in ['.design-trigger', '.display-trigger']:
+                    box = controls.locator(trigger).bounding_box()
+                    assert box['x'] >= 0 and box['x'] + box['width'] <= width, (design, width, box)
                 for kind in ['design', 'display']:
                     if kind == 'design':
                         page.get_by_role('button', name='Change design, current:').click()
@@ -25,6 +32,7 @@ def check_design_controls(page, visit):
                     else:
                         panel = open_display(page)
                     expect(panel).to_be_visible()
+                    assert not page.evaluate(CONTRAST_AUDIT)['failures'], (design, appearance, width, kind, page.evaluate(CONTRAST_AUDIT)['failures'])
                     box = panel.bounding_box()
                     assert box['x'] >= 0 and box['y'] >= 0 and box['x'] + box['width'] <= width and box['y'] + box['height'] <= height, (design, kind, width, height, box)
                     if kind == 'design':
@@ -36,6 +44,7 @@ def check_design_controls(page, visit):
                         panel.get_by_text('lb / oz', exact=True).click()
                         page.keyboard.press('Escape')
                     expect(panel).not_to_be_visible()
+                    expect(page.locator('.design-trigger' if kind == 'design' else '.display-trigger')).to_be_focused()
                     checks += 1
         # Popovers dismiss each other; a route change dismisses the design picker.
         page.set_viewport_size({'width': 1440, 'height': 900})
@@ -63,6 +72,10 @@ def check_design_controls(page, visit):
     page.keyboard.press('ArrowLeft')
     expect(page.locator('html')).to_have_attribute('data-design', 'original')
     expect(page.locator('.guide-shell')).to_be_visible()
-    expect(page.locator('#design-picker')).not_to_be_visible()
+    expect(picker).to_be_visible()
+    expect(picker.get_by_role('radio', name='Original', exact=True)).to_be_focused()
+    page.keyboard.press('Escape')
+    expect(picker).not_to_be_visible()
+    expect(page.get_by_role('button', name='Change design, current:')).to_be_focused()
     print(f'All {checks} design/display panel checks passed, including 360px-tall windows and keyboard interface switching.', flush=True)
     return checks

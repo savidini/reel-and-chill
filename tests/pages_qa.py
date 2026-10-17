@@ -80,8 +80,8 @@ def check(base, live):
                         brand = page.get_by_role('link', name='Reel & Chill home', exact=True)
                         expect(brand).to_be_visible()
                         box = brand.bounding_box()
-                        controls = page.locator('.alt-utilities').bounding_box()
-                        assert box['x'] + box['width'] <= controls['x'] + 1, (design, width, box, controls)
+                        controls = page.locator('header .header-controls').bounding_box()
+                        assert box['x'] + box['width'] <= controls['x'] + 1 or box['y'] + box['height'] <= controls['y'] + 1, (design, width, box, controls)
                     if width in [1440, 390] and theme == 'light':
                         page.screenshot(path=str(artifacts / f'{design}-{width}.png'), full_page=False)
                     screens += 1

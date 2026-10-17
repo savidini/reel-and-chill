@@ -12,7 +12,9 @@
     "assets:fetch": "node scripts/import-game.mjs --scenes",
     "data:validate": "node scripts/validate-data.mjs",
     "test:e2e": "python3 tests/browser_qa.py",
-    "test:smoke": "python3 tests/pages_qa.py"
+    "test:smoke": "python3 tests/pages_qa.py",
+    "screenshots:readme": "npm run build && python3 scripts/capture-readme.py",
+    "test:scenes": "python3 tests/scene_qa.py"
   },
   "dependencies": {
     "react": "19.2.8",

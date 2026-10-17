@@ -4,12 +4,12 @@ import type { Article, Catalog, Condition, Filters, Fish, Size, Source, Time, Up
 import { coins, filterFish, fishForEquipment, fishLabel, matchingConditions, matchesText, nameOf, sceneFor, searchGuide, sizeOrder, suggestedTackle, timeLabel, times, titleCase, weight } from './guide';
 import articleData from './content/articles.json';
 import { publicAsset, resolveCatalogAssets } from './assets';
-import { AsciiLake } from './components/AsciiLake';
+import { AsciiScene } from './components/AsciiScene';
 import { Icon } from './components/Icon';
-import { DisplaySettings } from './components/DisplaySettings';
-import { useTheme, type ThemePreference } from './useTheme';
-import { useDesign, type Design } from './useDesign';
-import { DesignSwitcher } from './components/DesignSwitcher';
+import { GuidePreferences, HeaderControls } from './components/GuidePreferences';
+import { useUnits } from './designs/shared';
+import { useTheme } from './useTheme';
+import { useDesign } from './useDesign';
 import { AlternativeGuide } from './designs/AlternativeGuide';
 import { AchievementBrowser } from './components/AchievementBrowser';
 import { achievementSource } from './content/achievements';
@@ -20,6 +20,7 @@ import './styles/chapters.css';
 import './styles/navigation.css';
 import './styles/details.css';
 import './styles/designs.css';
+import './styles/header-controls.css';
 
 const articles: Article[] = articleData;
 const GuideContext = createContext<{ catalog: Catalog; unit: string }>({} as { catalog: Catalog; unit: string });
@@ -168,9 +169,10 @@ function Home({ onSearch }: { onSearch: () => void }) {
         <h1>Reel <span>&amp;</span> Chill</h1>
         <p>Find species, catch conditions,<br/>and the tackle to match.</p>
         <button className="home-search-button" onClick={onSearch}><Icon name="search" size={20}/><span>Search fish, waters, tackle…</span><kbd>Ctrl K</kbd></button>
+        <a className="button primary welcome-atlas" href="#/fish">Open Fish Atlas <Icon name="arrow" size={16}/></a>
         <dl className="guide-stats"><div><dt>Species</dt><dd>{catalog.meta.speciesCount}</dd></div><div><dt>Waters</dt><dd>{catalog.locations.length}</dd></div><div><dt>Legends</dt><dd>{catalog.fish.filter(f => f.legendary).length}</dd></div></dl>
       </header>
-      <section className="welcome-scene" aria-label="Alpine lake at dawn"><AsciiLake><a className="button primary" href="#/fish">Open Fish Atlas <Icon name="arrow" size={16}/></a><span className="scene-caption">Alpine Dawn</span></AsciiLake></section>
+      <section className="welcome-scene" aria-label="Aurora over the fjord"><AsciiScene scene="aurora-fjord"/></section>
     </div>
     <section className="chapter-index" aria-labelledby="chapter-index-title">
       <div className="chapter-index-heading"><h2 id="chapter-index-title">Explore the guide</h2><span>{chapters.length} chapters</span></div>
@@ -396,7 +398,7 @@ function About() {
       <p>Achievement tips: <a href={achievementSource.url} target="_blank" rel="noreferrer">{achievementSource.title} ↗</a>.</p>
       <ul>{catalog.meta.sources.map(s => <li key={s.url}><a href={s.url} target="_blank" rel="noreferrer">{s.title} ↗</a></li>)}</ul>
       <p>Reel &amp; Chill is an unofficial companion. Cast n Chill and its artwork belong to Wombat Brawler. Regional press-kit images may represent more than one fishing spot.</p>
-      <p>Fira Sans: SIL Open Font License. DejaVu Sans Mono: Bitstream Vera licence. Cast Pixel: original display alphabet.</p><p>Alpine Dawn ASCII scene and renderer by <a href="https://ascii.rest/alpine-dawn/" target="_blank" rel="noreferrer">bas3line / ascii.rest</a>, <a href={publicAsset('/licenses/ascii-rest.txt')} target="_blank" rel="noreferrer">MIT licence</a>.</p>
+      <p>Fira Sans: SIL Open Font License. DejaVu Sans Mono: Bitstream Vera licence. Cast Pixel: original display alphabet.</p><p>Aurora Fjord and Deep Reef ASCII scenes and renderer by <a href="https://ascii.rest/" target="_blank" rel="noreferrer">bas3line / ascii.rest</a>, <a href={publicAsset('/licenses/ascii-rest.txt')} target="_blank" rel="noreferrer">MIT licence</a>.</p>
     </section>
   </div>;
 }
@@ -489,9 +491,8 @@ function SearchDialog({ open, close }: { open: boolean; close: () => void }) {
     <div className="search-dialog-footer"><span><kbd>↑</kbd><kbd>↓</kbd> browse</span><span><kbd>↵</kbd> open</span><span><kbd>Esc</kbd> close</span></div>
   </dialog>;
 }
-function Guide({ catalog, theme, setTheme, design, setDesign }: { catalog: Catalog; theme: ThemePreference; setTheme: (theme: ThemePreference) => void; design: Design; setDesign: (design: Design) => void }) {
+function Guide({ catalog, unit }: { catalog: Catalog; unit: string }) {
   const [route, setRoute] = useState(getRoute);
-  const [unit, setUnit] = useState(() => { try { return localStorage.getItem('cast-guide-unit') === 'kg' ? 'kg' : 'lb'; } catch { return 'lb'; } });
   const [searchOpen, setSearchOpen] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
   const main = useRef<HTMLElement>(null);
@@ -538,7 +539,6 @@ function Guide({ catalog, theme, setTheme, design, setDesign }: { catalog: Catal
     const onKey = (e: KeyboardEvent) => { if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); setNavOpen(false); setSearchOpen(s => !s); } if (e.key === 'Escape') setNavOpen(false); };
     window.addEventListener('keydown', onKey); return () => window.removeEventListener('keydown', onKey);
   }, []);
-  useEffect(() => { try { localStorage.setItem('cast-guide-unit', unit); } catch { /* Private browsing may disallow preferences. */ } }, [unit]);
   useEffect(() => {
     if (!navOpen && !searchOpen) return;
     const previous = document.body.style.overflow;
@@ -574,8 +574,7 @@ function Guide({ catalog, theme, setTheme, design, setDesign }: { catalog: Catal
           <a className="topbar-context" href={routeHref(activeChapter)}><Icon name={activeChapter} size={16}/>{chapterName}</a>
           <div className="topbar-actions">
             <button className="global-search-button" aria-label="Search guide" aria-keyshortcuts="Control+K Meta+K" onClick={() => setSearchOpen(true)}><Icon name="search" size={16}/><span>Search guide</span><kbd>Ctrl K</kbd></button>
-            <DesignSwitcher design={design} onChange={setDesign}/>
-            <DisplaySettings theme={theme} setTheme={setTheme} unit={unit} setUnit={setUnit}/>
+            <HeaderControls/>
           </div>
         </header>
         <main id="main-content" ref={main} tabIndex={-1}>{page}</main>
@@ -587,14 +586,17 @@ function Guide({ catalog, theme, setTheme, design, setDesign }: { catalog: Catal
 }
 function App() {
   const [theme, setTheme] = useTheme();
+  const [unit, setUnit] = useUnits();
   const [design, setDesign] = useDesign();
   const [catalog, setCatalog] = useState<Catalog | null>(null);
   const [error, setError] = useState('');
   useEffect(() => { const controller = new AbortController(); fetch(publicAsset('/data/catalog.json'), { signal: controller.signal }).then(async response => { if (!response.ok) throw new Error('The catalog could not be loaded.'); const data = await response.json(); if (data.schemaVersion !== 1 || !data.fish?.length) throw new Error('The catalog is missing or has an unsupported format.'); setCatalog(resolveCatalogAssets(data)); }).catch(e => { if (e.name !== 'AbortError') setError(e.message); }); return () => controller.abort(); }, []);
   if (error) return <div className="boot-screen"><Icon name="handbook" size={48}/><p>Reel &amp; Chill</p><h1>Catalog unavailable</h1><p>We couldn’t load the catalog. Check your connection and try again.</p><button className="button" onClick={() => window.location.reload()}>Try again</button></div>;
   if (!catalog) return <div className="boot-screen" role="status"><Icon name="fish" size={56}/><h1>Reel &amp; Chill</h1><p>Your Cast n Chill companion.</p><p>Loading catalog…</p></div>;
-  return design === 'original'
-    ? <Guide catalog={catalog} theme={theme} setTheme={setTheme} design={design} setDesign={setDesign}/>
-    : <AlternativeGuide catalog={catalog} articles={articles} theme={theme} setTheme={setTheme} design={design} setDesign={setDesign}/>;
+  return <GuidePreferences design={design} setDesign={setDesign} theme={theme} setTheme={setTheme} unit={unit} setUnit={setUnit}>
+    {design === 'original'
+      ? <Guide catalog={catalog} unit={unit}/>
+      : <AlternativeGuide catalog={catalog} articles={articles} design={design} setDesign={setDesign} unit={unit}/>}
+  </GuidePreferences>;
 }
 createRoot(document.getElementById('root')!).render(<React.StrictMode><App/></React.StrictMode>);

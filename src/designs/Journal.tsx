@@ -1,3 +1,4 @@
+import { HeaderControls } from '../components/GuidePreferences';
 import { useEffect, useState } from 'react';
 import { coins, filterFish, fishLabel, nameOf, sceneFor, suggestedTackle, titleCase, weight } from '../guide';
 import type { Article, Fish } from '../types';
@@ -62,7 +63,7 @@ export function Journal({ catalog, articles, route, unit, onOriginal }: ViewProp
   </>;
 
   return <div className="alt-app journal-app">
-    <header className="j-top"><a className="j-wordmark" href={href('home')} aria-label="Reel & Chill home">R&amp;C<span>REEL &amp; CHILL</span></a></header>
+    <header className="j-top"><a className="j-wordmark" href={href('home')} aria-label="Reel & Chill home">R&amp;C<span>REEL &amp; CHILL</span></a><HeaderControls/></header>
     <nav className="j-nav" aria-label="Magazine sections">{[['home', 'The current issue'], ['handbook', 'Stories'], ['fish', 'Species index'], ['waters', 'Places'], ['tackle', 'The kit'], ['achievements', 'Achievements']].map(([key, label]) => <a key={key} className={(key === 'fish' ? isSpecies : key === 'handbook' ? isStories : chapter === key) ? 'is-active' : ''} href={href(key)}>{label}</a>)}</nav>
     <main id="alternative-content" tabIndex={-1} className="j-pages">{body}</main>
     <footer className="j-footer"><a href={href('home')}>Reel &amp; Chill</a><span>Your Cast n Chill companion.</span><button onClick={onOriginal}>Open the complete field guide ↗</button><SourceFootnote catalog={catalog}/></footer>
