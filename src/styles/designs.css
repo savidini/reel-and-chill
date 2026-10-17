@@ -1,0 +1,38 @@
+/* Shared design picker; the four alternatives have independent app styles. */
+.design-trigger { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 12px; border: 1px solid var(--control-line); border-radius: 6px; background: var(--panel); color: var(--ink); font-size: 14px; white-space: nowrap; }
+.design-trigger > svg { color: var(--link); }
+.design-trigger:hover, .design-trigger[aria-expanded="true"] { background: var(--selected-bg); border-color: var(--selected-line); }
+.design-panel { position: fixed; inset: auto; width: min(850px, calc(100% - 24px)); max-height: calc(100dvh - 92px); overflow-y: auto; margin: 0; padding: 24px; border: 1px solid var(--control-line); border-radius: 16px; color: var(--ink); background: var(--panel); box-shadow: 0 16px 60px var(--modal-shadow); }
+.design-panel-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
+.design-panel-heading h2 { font: 500 25px/1.3 var(--sans); letter-spacing: -.03em; margin: 0 0 6px; }
+.design-panel-heading p { color: var(--muted); font-size: 14px; margin: 0; }
+.design-panel-heading .icon-button { margin: -8px -8px 0 0; }
+.design-panel fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.design-options { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.design-option { position: relative; min-width: 0; padding: 6px; border: 1px solid var(--line-strong); border-radius: 9px; cursor: pointer; background: var(--paper); }
+.design-option:hover { border-color: var(--gold); background: var(--panel-hover); }
+.design-option:has(input:checked) { box-shadow: 0 0 0 2px var(--link); border-color: var(--link); background: var(--selected-bg); }
+.design-option:has(input:focus-visible) { outline: 3px solid var(--gold); outline-offset: 4px; }
+.design-option-copy { display: block; padding: 10px 5px 6px; }
+.design-option-name { display: flex; justify-content: space-between; gap: 6px; font-size: 16px; font-weight: 500; }
+.design-selected { visibility: hidden; color: var(--link); }
+.design-option:has(input:checked) .design-selected { visibility: visible; }
+.design-option:has(input:checked) .design-option-description { color: var(--text-secondary); }
+.design-option-description { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.design-panel-footer { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-top: 22px; font-size: 13px; color: var(--muted); }
+.design-panel-footer .button { min-width: 88px; }
+
+.design-preview {display:block;position:relative;height:108px;background:#f5f2eb;border-radius:4px;overflow:hidden}
+.design-preview i{display:block;position:absolute;border-radius:1px}
+.preview-nav{inset:0 80% 0 0;background:#243831}.preview-heading{left:27%;top:17%;width:27%;height:18%;background:#52664d}.preview-art{right:7%;top:13%;width:33%;height:36%;background:#95a986}.preview-card{top:60%;height:27%;width:18%;background:#dde3d5;border-bottom:4px solid #a04d32}.preview-card.one{left:27%}.preview-card.two{left:50%}.preview-card.three{left:73%}
+.preview-journal{background:#f6f2e9}.preview-journal .preview-nav{inset:8% 7% auto;height:5%;background:#272c23}.preview-journal .preview-heading{top:22%;left:7%;width:85%;height:17%;background:#272c23;border-radius:0}.preview-journal .preview-art{top:45%;left:7%;width:58%;height:34%;background:#a0b49a}.preview-journal .preview-card{background:#b8b5a5;border:0}.preview-journal .one{left:7%;top:84%;width:58%;height:4%}.preview-journal .two{left:73%;top:46%;width:20%;height:7%}.preview-journal .three{left:73%;top:59%;width:20%;height:28%;background:#d4d1c2}
+.preview-expedition{background:#16282d}.preview-expedition .preview-nav{inset:0 0 auto;height:13%;background:#16282d}.preview-expedition .preview-art{inset:13% 0 22%;width:auto;height:auto;background:linear-gradient(160deg,#8babad 0 33%,#677d69 34% 57%,#344f45 58% 73%,#698f87 74%);border-radius:0}.preview-expedition .preview-heading{top:44%;left:10%;width:61%;height:13%;background:#f4f3ec;z-index:1}.preview-expedition .preview-card{top:83%;height:9%;width:23%;background:#a5b2a1;border:0}.preview-expedition .one{left:8%}.preview-expedition .two{left:38%}.preview-expedition .three{left:68%}
+.preview-sonar{background:#111720}.preview-sonar .preview-nav{inset:25% 80% 0 0;background:#202d3b}.preview-sonar .preview-heading{top:9%;left:6%;width:32%;height:7%;background:#85b9ff}.preview-sonar .preview-art{inset:25% 0 0 72%;width:auto;height:auto;background:repeating-linear-gradient(0deg,#171f2a 0 12px,#273545 13px 14px)}.preview-sonar .preview-card{left:25%;width:41%;height:9%;border:0;background:#344759}.preview-sonar .one{top:37%;background:#466a91}.preview-sonar .two{top:54%}.preview-sonar .three{top:71%}
+.preview-studio{background:#e8e1d4}.preview-studio .preview-nav{inset:22% 7% 7%;background:#fffdf5;border-radius:6px}.preview-studio .preview-heading{top:30%;left:15%;height:18%;width:37%;background:#30372d;border-radius:2px}.preview-studio .preview-art{right:16%;top:27%;width:23%;height:29%;border-radius:50%;background:#cdd8ac}.preview-studio .preview-card{top:64%;height:23%;border:1px dashed #aebaa0;width:22%;border-radius:2px}.preview-studio .one{left:15%;background:#f2d3be}.preview-studio .two{left:40%;background:#d9e5c8}.preview-studio .three{left:65%;background:#e0d9f0}
+@media(max-width:1400px){.design-current{display:none}}
+@media(max-width:1100px){.topbar-context{display:none}}
+@media(max-width:760px){.design-panel{padding:18px}.design-options{grid-template-columns:1fr;gap:8px}.design-option{display:grid;grid-template-columns:84px minmax(0,1fr);padding:5px;align-items:center;gap:10px}.design-preview{height:60px}.design-option-copy{padding:0 6px 0 0}.design-option-name{font-size:16px}.design-option-description{margin-top:2px;font-size:12px}.design-panel-heading{margin-bottom:16px}.design-panel-heading h2{font-size:22px}.design-panel-heading p{font-size:13px}.design-panel-footer{margin-top:16px;font-size:12px;gap:12px}}
+@media(max-width:520px){.topbar-actions{gap:6px}.design-trigger{padding:8px 10px;gap:6px}.design-trigger .display-chevron{display:none}}
+@media(max-width:420px){.topbar .design-trigger{padding:8px;width:44px;justify-content:center}.topbar .design-trigger>span{display:none}}
+@media(forced-colors:active){.design-option:has(input:checked){outline:2px solid Highlight}.design-option:has(input:focus-visible){outline:3px solid Highlight}.design-preview{border:1px solid CanvasText}}
+@media print{.design-trigger,.design-panel{display:none!important}}

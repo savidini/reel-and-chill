@@ -1,0 +1,57 @@
+/* Chapter headers use one type scale and make room for the actual entries. */
+.chapter-hero { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 32px; align-items: center; max-width: 1336px; margin: auto; padding: 28px 32px 24px; }
+.chapter-hero > img { grid-column: 2; grid-row: 1; width: 100%; height: 116px; object-fit: cover; object-position: center; image-rendering: pixelated; border-radius: 6px; border: 1px solid var(--line); }
+.hero-copy { grid-column: 1; grid-row: 1; min-width: 0; }
+.hero-copy .eyebrow { font-size: 12px; letter-spacing: 1.3px; color: var(--gold); margin-bottom: 8px; }
+.hero-copy h1 { font-size: 36px; line-height: 1.2; margin: 0; }
+.chapter-description { max-width: 520px; margin: 10px 0 0; font-size: 15px; line-height: 1.6; color: var(--muted); }
+.chapter-hero + .page-body { padding-top: 4px; }
+.article-page { max-width: 880px; padding-top: 36px; }
+.article-heading { padding-bottom: 28px; }
+.article-heading .eyebrow { color: var(--gold); }
+.article-heading h1 { font-size: 38px; line-height: 1.2; margin: 12px 0 16px; }
+.article-heading > p { margin: 0; color: var(--muted); font-size: 18px; line-height: 1.7; }
+.article-contents { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 12px 0; }
+.article-contents > span { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+.article-contents button { display: inline-flex; align-items: center; gap: 10px; padding: 8px 0; min-height: 44px; font-size: 14px; color: var(--link); text-align: left; }
+.article-contents button > span { font: 11px/1.5 var(--mono); color: var(--gold); }
+.article-contents button:hover { color: var(--gold); text-decoration: underline; text-underline-offset: 4px; }
+.article-body { max-width: 68ch; }
+.article-body > section { margin: 32px 0; }
+.article-body > section > h2 { font-size: 24px; margin-bottom: 14px; scroll-margin-top: 96px; }
+.article-body > section p { font-size: 16px; line-height: 1.85; }
+.search-start { padding: 0 24px 24px; }
+.search-start > p { font-size: 13px; color: var(--muted); margin: 0 0 12px; }
+.search-chapters { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.search-chapters > a { display: flex; align-items: center; gap: 12px; min-width: 0; min-height: 52px; padding: 12px; text-decoration: none; border: 1px solid var(--line); border-radius: 5px; font-size: 14px; color: var(--ink); }
+.search-chapters > a > svg:first-child { color: var(--gold); }
+.search-chapters > a > svg:last-child { margin-left: auto; color: var(--muted); }
+.search-chapters > a:hover { background: var(--selected-bg); border-color: var(--selected-line); }
+
+@media (min-width: 1500px) { .chapter-hero { padding-left: 40px; padding-right: 40px; } }
+@media (max-width: 1250px) { .chapter-hero { padding: 24px; grid-template-columns: minmax(0, 1fr) 200px; gap: 24px; } .hero-copy h1 { font-size: 32px; } }
+@media (max-width: 760px) {
+  .chapter-hero { padding: 24px 22px 20px; grid-template-columns: minmax(0, 1fr) 160px; gap: 20px; }
+  .hero-copy h1 { font-size: 30px; }
+  .chapter-hero > img { height: 108px; }
+  .chapter-description { font-size: 14px; }
+}
+@media (max-width: 520px) {
+  .chapter-hero { padding: 24px 16px 20px; grid-template-columns: minmax(0, 1fr) 88px; gap: 16px; }
+  .hero-copy h1 { font-size: 28px; }
+  .hero-copy .eyebrow { font-size: 11px; }
+  .chapter-hero > img { height: 84px; }
+  .chapter-description { display: none; }
+  .article-page { padding: 24px 20px 36px; }
+  .article-heading { padding-bottom: 24px; }
+  .article-heading h1 { font-size: 30px; margin: 12px 0; }
+  .article-heading > p { font-size: 16px; }
+  .article-contents { gap: 4px 16px; }
+  .article-contents > span { width: 100%; }
+  .article-contents button { font-size: 14px; }
+  .article-body > section > h2 { font-size: 22px; }
+  .article-body > section p { font-size: 16px; }
+  .search-start { padding: 0 16px 16px; }
+  .search-chapters { grid-template-columns: 1fr; max-height: 48dvh; overflow-y: auto; }
+}
+@media print { .article-contents, .search-start { display: none; } .article-page { max-width: none; } }

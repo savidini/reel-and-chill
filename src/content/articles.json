@@ -1,0 +1,903 @@
+[
+  {
+    "id": "first-cast",
+    "title": "Casting & controls",
+    "category": "fieldcraft",
+    "summary": "Casting, retrieving, changing tackle, and selling.",
+    "sections": [
+      {
+        "heading": "Controls",
+        "paragraphs": [
+          "At The Fork, Lil' Guppy and the Bobber suit the common Threadfin Shad, which prefer float lures.",
+          "Leave the dock with the movement arrows and use the fishing prompt to cast. Default mouse controls: left button retrieves; right button lets line out. Check the controls screen for other bindings."
+        ]
+      },
+      {
+        "heading": "Tackle & selling",
+        "paragraphs": [
+          "Hover above the boat to change tackle. Let the lure reach the fish's depth, then retrieve through its path. Ease off when the hooked fish struggles.",
+          "Return to the dock to sell your catch."
+        ]
+      }
+    ],
+    "relatedFishIds": [
+      "threadfin-shad",
+      "bluegill-sunfish"
+    ],
+    "relatedEquipmentIds": [],
+    "sources": [
+      {
+        "title": "Neoseeker — controls and basic fishing loop",
+        "url": "https://www.neoseeker.com/cast-n-chill/walkthrough"
+      },
+      {
+        "title": "Community data — Threadfin Shad",
+        "url": "https://castnchill.unpack.wiki/docs/fish/threadfin-shad/"
+      },
+      {
+        "title": "Wombat Brawler — official press kit",
+        "url": "https://www.wombatbrawler.com/cnc-press-kit"
+      }
+    ],
+    "keywords": [
+      "beginner",
+      "controls",
+      "cast",
+      "retrieve",
+      "mouse",
+      "dock",
+      "sell",
+      "bobber"
+    ]
+  },
+  {
+    "id": "matching-tackle",
+    "title": "Tackle compatibility",
+    "category": "fieldcraft",
+    "summary": "Match the fish, rod, and lure at the same size.",
+    "sections": [
+      {
+        "heading": "Size & lure family",
+        "paragraphs": [
+          "Choose a preferred lure family, then a lure and rod that both cover the target fish's size. A family match alone is not enough.",
+          "Example: an L Brown Trout can use Big Crankbait (L–XL) and Maple Scout (M–L). An XL trout needs a rod that also covers XL."
+        ]
+      },
+      {
+        "heading": "Bonuses & upgrades",
+        "paragraphs": [
+          "A species bonus is separate from a preferred lure family. Check line preferences for sensitive fish.",
+          "Strength and length upgrades do not expand the rod's listed size range."
+        ]
+      }
+    ],
+    "relatedFishIds": [
+      "brown-trout"
+    ],
+    "relatedEquipmentIds": [],
+    "sources": [
+      {
+        "title": "Community data — rod size ranges",
+        "url": "https://castnchill.unpack.wiki/docs/rods/"
+      },
+      {
+        "title": "Community data — lure families, sizes, and bonus species",
+        "url": "https://castnchill.unpack.wiki/docs/lures/"
+      },
+      {
+        "title": "Community data — Brown Trout",
+        "url": "https://castnchill.unpack.wiki/docs/fish/brown-trout/"
+      }
+    ],
+    "keywords": [
+      "bait",
+      "lure",
+      "rod",
+      "compatibility",
+      "size",
+      "strength",
+      "crankbait"
+    ]
+  },
+  {
+    "id": "fighting-fish",
+    "title": "Fighting fish",
+    "category": "fieldcraft",
+    "summary": "Struggle cues, line slack, and rod upgrades.",
+    "sections": [
+      {
+        "heading": "When to reel",
+        "paragraphs": [
+          "Thrashing and bubbles signal a struggle. Stop retrieving, allow slack, and resume when the fish settles. Players also report reel-sound changes as a warning.",
+          "Well-timed pulls can influence direction slightly. Speed and stamina vary by species; there is no fixed retrieve-and-release timing."
+        ]
+      },
+      {
+        "heading": "Escapes",
+        "paragraphs": [
+          "Length upgrades increase the room before a fish reaches break distance. For weak pulling, check size compatibility and strength upgrades."
+        ]
+      }
+    ],
+    "relatedFishIds": [],
+    "relatedEquipmentIds": [
+      "rod04",
+      "rod08"
+    ],
+    "sources": [
+      {
+        "title": "Fish Fighting Update — developer notes reproduced by the community wiki",
+        "url": "https://castnchill.unpack.wiki/docs/patches/v1.0.2/"
+      },
+      {
+        "title": "Steam players — struggle bubbles and reel cues",
+        "url": "https://steamcommunity.com/app/3483740/discussions/0/603034577716445209/"
+      },
+      {
+        "title": "Community data — fish behaviour",
+        "url": "https://castnchill.unpack.wiki/docs/mechanics/"
+      },
+      {
+        "title": "Community data — Phantom Line upgrades",
+        "url": "https://castnchill.unpack.wiki/docs/rods/rod04/"
+      }
+    ],
+    "keywords": [
+      "fight",
+      "reel",
+      "bubbles",
+      "tension",
+      "slack",
+      "break",
+      "stamina",
+      "escape"
+    ]
+  },
+  {
+    "id": "trophies-and-legends",
+    "title": "Trophies & legends",
+    "category": "fieldcraft",
+    "summary": "Trophy thresholds, named encounters, and Rusty’s introduction.",
+    "sections": [
+      {
+        "heading": "Trophy weights",
+        "paragraphs": [
+          "Every species has a trophy threshold, separate from its size records. Even S-only Threadfin Shad can be trophies; trophy is not a size above XXL."
+        ]
+      },
+      {
+        "heading": "Legendary encounters",
+        "paragraphs": [
+          "Named legendary achievements require a trophy-weight catch of the relevant species. Each encounter has its own location and time window.",
+          "Rusty’s tip jar and empty wall mount introduce Legendary White Tip at The Fork. The installed build permits Walleye in all four periods; some community guides say Day only."
+        ]
+      },
+      {
+        "heading": "Rusty’s introduction",
+        "paragraphs": [
+          "The introductory unlock lists discovering Largemouth Bass, Bullhead Catfish, Longnose Sucker, and Crappie at Beaver Dam, then speaking with Rusty.",
+          "Whether this gates every legendary encounter is unconfirmed. Quest and respawn state can affect availability beyond the configured windows."
+        ]
+      }
+    ],
+    "relatedFishIds": [
+      "threadfin-shad",
+      "walleye"
+    ],
+    "relatedEquipmentIds": [],
+    "sources": [
+      {
+        "title": "Community data — Threadfin Shad trophy threshold",
+        "url": "https://castnchill.unpack.wiki/docs/fish/threadfin-shad/"
+      },
+      {
+        "title": "Community data — trophy mechanics",
+        "url": "https://castnchill.unpack.wiki/docs/mechanics/"
+      },
+      {
+        "title": "Community data — Legendary White Tip",
+        "url": "https://castnchill.unpack.wiki/docs/achievements/walleye-trophy/"
+      },
+      {
+        "title": "Community data — achievement requirements",
+        "url": "https://castnchill.unpack.wiki/docs/achievements/"
+      }
+    ],
+    "keywords": [
+      "trophy",
+      "legendary",
+      "threshold",
+      "weight",
+      "XXL",
+      "White Tip",
+      "wall mount"
+    ]
+  },
+  {
+    "id": "time-of-day",
+    "title": "Time of day",
+    "category": "fieldcraft",
+    "summary": "Dawn, Day, Dusk, Night, and the Snooze control.",
+    "sections": [
+      {
+        "heading": "Change the time",
+        "paragraphs": [
+          "Open Snooze at the bottom-right, or press Z with default bindings. The periods are Dawn, Day, Dusk, and Night. Older guides may call Day “Noon” and Night “Midnight”."
+        ]
+      },
+      {
+        "heading": "Encounter windows",
+        "paragraphs": [
+          "Legendary Lake Trout: Dawn. Cutthroat Trout: Day. White Sturgeon: Dusk. Northern Pike: Night. These windows apply to their legendary encounters, not every ordinary specimen.",
+          "Use the conditions for the specific location, size, and ice/open-water variant. “Any time” means unrestricted; “Time unconfirmed” means unknown.",
+          "The logbook records the time of your largest catch. That record does not establish a time restriction."
+        ]
+      }
+    ],
+    "relatedFishIds": [
+      "lake-trout",
+      "cutthroat-trout",
+      "white-sturgeon",
+      "northern-pike"
+    ],
+    "relatedEquipmentIds": [],
+    "sources": [
+      {
+        "title": "Community data — time of day",
+        "url": "https://castnchill.unpack.wiki/docs/time/"
+      },
+      {
+        "title": "Caff Caff — Snooze control",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3501739394"
+      },
+      {
+        "title": "Official v1.2.4 notes — SteamDB mirror",
+        "url": "https://steamdb.info/patchnotes/22172692/"
+      }
+    ],
+    "keywords": [
+      "time",
+      "dawn",
+      "day",
+      "noon",
+      "dusk",
+      "night",
+      "midnight",
+      "snooze",
+      "Z"
+    ]
+  },
+  {
+    "id": "active-and-passive",
+    "title": "Passive & Screensaver modes",
+    "category": "fieldcraft",
+    "summary": "Which modes earn catches, coins, and achievements.",
+    "sections": [
+      {
+        "heading": "Passive Mode",
+        "paragraphs": [
+          "Active Mode gives you control of casting and fights. Passive Mode fishes automatically using your chosen location, time, rod, and lure.",
+          "Idle Mode settings can limit which fish passive fishing catches. Check them before leaving the game running."
+        ]
+      },
+      {
+        "heading": "Screensaver Mode",
+        "paragraphs": [
+          "General Screensaver Mode disables progression, sales, and achievements. Use Passive Mode to earn catches.",
+          "The cabin’s Fish Viewer is separate and has a 30-minute Fishwatch achievement."
+        ]
+      }
+    ],
+    "relatedFishIds": [],
+    "relatedEquipmentIds": [],
+    "sources": [
+      {
+        "title": "Wombat Brawler — official mode descriptions",
+        "url": "https://www.wombatbrawler.com/cnc-press-kit"
+      },
+      {
+        "title": "Fish Fighting Update — developer notes reproduced by the community wiki",
+        "url": "https://castnchill.unpack.wiki/docs/patches/v1.0.2/"
+      },
+      {
+        "title": "Official v1.2.4 notes — SteamDB mirror",
+        "url": "https://steamdb.info/patchnotes/22172692/"
+      },
+      {
+        "title": "Community data — Fishwatch",
+        "url": "https://castnchill.unpack.wiki/docs/achievements/viewer-watched/"
+      }
+    ],
+    "keywords": [
+      "active",
+      "passive",
+      "idle",
+      "screensaver",
+      "background",
+      "automation",
+      "Fishwatch"
+    ]
+  },
+  {
+    "id": "ice-fishing",
+    "title": "Ice fishing",
+    "category": "fieldcraft",
+    "summary": "Frostbite Flats, ice rods, drilling, and Hole Dozen.",
+    "sections": [
+      {
+        "heading": "Unlock & drill",
+        "paragraphs": [
+          "Visit Craggy Reef or Seals Rest, then check Rusty’s tip jar for Lake Hunkerdown. Obtain the Snow Wolf XT1.",
+          "Drive onto the ice, dismount, and use the fishing action to drill. The first hole earns Ice Breaker."
+        ]
+      },
+      {
+        "heading": "Ice rods",
+        "paragraphs": [
+          "Frost Stick covers S–L. Discover all 10 fish at Frostbite Flats to unlock Hardwater Howler: 1,000 coins, XL–XXL.",
+          "Ice variants have their own sizes, weights, and catch conditions."
+        ]
+      },
+      {
+        "heading": "Hole Dozen",
+        "paragraphs": [
+          "Catch 12 fish from the same hole. The community achievement guide reports that catch-and-release counts."
+        ]
+      }
+    ],
+    "relatedFishIds": [],
+    "relatedEquipmentIds": [
+      "rod10"
+    ],
+    "sources": [
+      {
+        "title": "Official Lake Hunkerdown update — SteamDB mirror",
+        "url": "https://steamdb.info/patchnotes/20995581/"
+      },
+      {
+        "title": "Community data — Frostbite Flats unlock",
+        "url": "https://castnchill.unpack.wiki/docs/locations/ice1-spot1/"
+      },
+      {
+        "title": "Steam discussion — Lake Hunkerdown unlock clarification",
+        "url": "https://steamcommunity.com/app/3483740/discussions/0/686365108484491802/"
+      },
+      {
+        "title": "Community data — Hardwater Howler",
+        "url": "https://castnchill.unpack.wiki/docs/rods/rod10/"
+      },
+      {
+        "title": "Caff Caff — drilling and Hole Dozen",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3501739394"
+      },
+      {
+        "title": "Community data — ice rod size ranges",
+        "url": "https://castnchill.unpack.wiki/docs/rods/"
+      }
+    ],
+    "keywords": [
+      "ice",
+      "winter",
+      "drill",
+      "hole",
+      "Frostbite Flats",
+      "Hunkerdown",
+      "snowmobile",
+      "Hardwater Howler"
+    ]
+  },
+  {
+    "id": "rusty-and-unlocks",
+    "title": "Rusty & unlocks",
+    "category": "progression",
+    "summary": "Shop availability, map hints, and licence costs.",
+    "sections": [
+      {
+        "heading": "Shop & tip jar",
+        "paragraphs": [
+          "New fish discoveries make many lures available at Rusty’s shop. The tip jar provides clues and unlocks locations or rods.",
+          "For a locked map location, complete its stated discoveries or catches, then check Rusty again. Requirements differ by location."
+        ]
+      },
+      {
+        "heading": "Region licences",
+        "paragraphs": [
+          "Fawnmirror Lake: 250 coins. Grizzlyridge River: 500. Icewater Sea: 1,250. Autumnwood Lake: 1,500. Old Wreck Bay: 1,750."
+        ]
+      }
+    ],
+    "relatedFishIds": [],
+    "relatedEquipmentIds": [],
+    "sources": [
+      {
+        "title": "Community data — Rusty and the tip jar",
+        "url": "https://castnchill.unpack.wiki/docs/characters/rusty/"
+      },
+      {
+        "title": "Community data — region licence costs",
+        "url": "https://castnchill.unpack.wiki/docs/areas/"
+      },
+      {
+        "title": "Official v1.2.4 notes — map unlock hints",
+        "url": "https://steamdb.info/patchnotes/22172692/"
+      },
+      {
+        "title": "Steam discussion — ordinary catches and early spot unlocks",
+        "url": "https://steamcommunity.com/app/3483740/discussions/0/603033577383303646/"
+      }
+    ],
+    "keywords": [
+      "Rusty",
+      "shop",
+      "tip jar",
+      "licence",
+      "license",
+      "unlock",
+      "progression",
+      "question mark"
+    ]
+  },
+  {
+    "id": "boats-and-upgrades",
+    "title": "Boat upgrades",
+    "category": "progression",
+    "summary": "Storage capacity, engine speed, and purchase costs.",
+    "sections": [
+      {
+        "heading": "Storage & engine",
+        "paragraphs": [
+          "Storage upgrades add fish slots. Engine upgrades improve travel speed and acceleration.",
+          "Loonchaser: 1,000 coins, 6–10 slots. Coastal Rambler: 5,000 coins, 10–14 slots. Upgrade costs are additional."
+        ]
+      },
+      {
+        "heading": "Completion",
+        "paragraphs": [
+          "Rusty’s No.1 Customer requires purchases and upgrades; buying only the base items is insufficient."
+        ]
+      }
+    ],
+    "relatedFishIds": [],
+    "relatedEquipmentIds": [
+      "ccboat1",
+      "ccboat2"
+    ],
+    "sources": [
+      {
+        "title": "Community data — Loonchaser upgrades",
+        "url": "https://castnchill.unpack.wiki/docs/boats/loonchaser/"
+      },
+      {
+        "title": "Community data — Coastal Rambler upgrades",
+        "url": "https://castnchill.unpack.wiki/docs/boats/coastal-rambler/"
+      },
+      {
+        "title": "Community data — shop completion achievement",
+        "url": "https://castnchill.unpack.wiki/docs/achievements/"
+      }
+    ],
+    "keywords": [
+      "boat",
+      "engine",
+      "storage",
+      "capacity",
+      "speed",
+      "money",
+      "Loonchaser",
+      "Coastal Rambler"
+    ]
+  },
+  {
+    "id": "lines-and-length",
+    "title": "Lines & rod upgrades",
+    "category": "fieldcraft",
+    "summary": "Line sensitivity, Fluoro rods, strength, and length.",
+    "sections": [
+      {
+        "heading": "Line types",
+        "paragraphs": [
+          "Each rod has a fixed line type. Mono and Braid can scare smaller fish; Fluoro does not.",
+          "Phantom Line covers S–L with Fluoro. Unlock it by discovering any one of Arctic Grayling, Mooneye, Goldeye, or Eulachon.",
+          "Copperleaf 86 covers L–XXL with Fluoro. Unlock it by visiting Shallows Edge."
+        ]
+      },
+      {
+        "heading": "Upgrade tracks",
+        "paragraphs": [
+          "Length upgrades increase spool and break distances. Strength upgrades improve pulling capability. Neither changes the rod’s size range."
+        ]
+      }
+    ],
+    "relatedFishIds": [
+      "arctic-grayling",
+      "mooneye",
+      "goldeye",
+      "eulachon"
+    ],
+    "relatedEquipmentIds": [
+      "rod04",
+      "rod08"
+    ],
+    "sources": [
+      {
+        "title": "Community data — line types",
+        "url": "https://castnchill.unpack.wiki/docs/lines/"
+      },
+      {
+        "title": "Community data — Phantom Line",
+        "url": "https://castnchill.unpack.wiki/docs/rods/rod04/"
+      },
+      {
+        "title": "Community data — Copperleaf 86",
+        "url": "https://castnchill.unpack.wiki/docs/rods/rod08/"
+      },
+      {
+        "title": "Official Autumnwood update — SteamDB mirror",
+        "url": "https://steamdb.info/patchnotes/19933619/"
+      }
+    ],
+    "keywords": [
+      "line",
+      "mono",
+      "fluoro",
+      "braid",
+      "spook",
+      "length",
+      "spool",
+      "strength",
+      "Phantom Line"
+    ]
+  },
+  {
+    "id": "cabin-restoration",
+    "title": "Cabin restoration",
+    "category": "cabin",
+    "summary": "Unlocks, six repairs, and the 23,750-coin total.",
+    "sections": [
+      {
+        "heading": "Unlock",
+        "paragraphs": [
+          "Visit Otter Cove, then speak with Rusty. Buy Old Moose Valley for 4,000 coins. Exterior restoration costs 7,500."
+        ]
+      },
+      {
+        "heading": "Interior repairs",
+        "paragraphs": [
+          "Cloakroom: 500 coins. Kitchen: 1,500. Dining Room: 1,500. Fireplace: 2,500. Fish Finder: 3,000. Trophy Wall: 2,500.",
+          "Exterior and interior restoration total 19,000 coins. Including the deed and 750-coin waterfall clearance: 23,750. Fishing equipment is extra.",
+          "Complete the restoration for Nailed it. The Fish Finder enables pond viewing; the Trophy Wall displays replicas of trophy catches."
+        ]
+      }
+    ],
+    "relatedFishIds": [],
+    "relatedEquipmentIds": [],
+    "sources": [
+      {
+        "title": "Official Old Moose Cabin announcement",
+        "url": "https://steamcommunity.com/games/3483740/announcements/detail/659358246189924927"
+      },
+      {
+        "title": "Official cabin announcement — SteamDB mirror",
+        "url": "https://steamdb.info/patchnotes/23446635/"
+      },
+      {
+        "title": "Community data — cabin unlock and repair costs",
+        "url": "https://castnchill.unpack.wiki/docs/locations/cabin1/"
+      }
+    ],
+    "keywords": [
+      "cabin",
+      "Old Moose Valley",
+      "restore",
+      "repair",
+      "cost",
+      "Nailed it",
+      "rooms",
+      "budget"
+    ]
+  },
+  {
+    "id": "pond-cleanup",
+    "title": "Pond cleanup",
+    "category": "cabin",
+    "summary": "Seven rubbish types and the waterfall blockage.",
+    "sections": [
+      {
+        "heading": "Remove rubbish",
+        "paragraphs": [
+          "Fish out all seven rubbish types, covering S–L, from the dock or boat. Watch the cleanup meter.",
+          "Community tips: check behind foreground scenery for hidden pieces, and ease off if a tyre resists to avoid breaking the line."
+        ]
+      },
+      {
+        "heading": "Clear the waterfall",
+        "paragraphs": [
+          "Remove the blockage on the left for 750 coins. It counts toward Muckbuster and the cleanup meter. The pond must be clean before stocking."
+        ]
+      }
+    ],
+    "relatedFishIds": [],
+    "relatedEquipmentIds": [],
+    "sources": [
+      {
+        "title": "Community data — pond rubbish and waterfall",
+        "url": "https://castnchill.unpack.wiki/docs/locations/cabin1/"
+      },
+      {
+        "title": "Caff Caff — Muckbuster practical notes",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3501739394"
+      },
+      {
+        "title": "Community update record — Old Moose Cabin",
+        "url": "https://castnchill.unpack.wiki/docs/patches/v1.3.0/"
+      }
+    ],
+    "keywords": [
+      "pond",
+      "clean",
+      "rubbish",
+      "trash",
+      "tyre",
+      "tire",
+      "waterfall",
+      "blockage",
+      "Muckbuster"
+    ]
+  },
+  {
+    "id": "pond-stocking",
+    "title": "Pond stocking",
+    "category": "cabin",
+    "summary": "Eligibility, logbook controls, and the 64-fish limit.",
+    "sections": [
+      {
+        "heading": "Add fish",
+        "paragraphs": [
+          "Clean the pond, go out on the cabin boat, and open the logbook. Use the stocking control for a freshwater species whose size collection is complete."
+        ]
+      },
+      {
+        "heading": "Capacity & achievements",
+        "paragraphs": [
+          "Stock up to eight species with eight fish each: 64 total. Fill all eight species to earn Packed like Sardines.",
+          "Catch one of your stocked fish for What Goes Around."
+        ]
+      }
+    ],
+    "relatedFishIds": [
+      "threadfin-shad",
+      "bluegill-sunfish"
+    ],
+    "relatedEquipmentIds": [],
+    "sources": [
+      {
+        "title": "Caff Caff — stocking eligibility and capacity",
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3501739394"
+      },
+      {
+        "title": "Community data — Packed like Sardines",
+        "url": "https://castnchill.unpack.wiki/docs/achievements/max-stocked/"
+      },
+      {
+        "title": "Community update record — stocked fish and cabin achievements",
+        "url": "https://castnchill.unpack.wiki/docs/patches/v1.3.0/"
+      }
+    ],
+    "keywords": [
+      "stock",
+      "pond",
+      "freshwater",
+      "logbook",
+      "eight",
+      "64",
+      "Packed like Sardines",
+      "What Goes Around"
+    ]
+  },
+  {
+    "id": "viewer-and-trophy-wall",
+    "title": "Fish Viewer & trophy wall",
+    "category": "cabin",
+    "summary": "Viewing the pond and displaying trophy catches.",
+    "sections": [
+      {
+        "heading": "Fish Viewer",
+        "paragraphs": [
+          "Repair the cabin’s Fish Finder to enable the Fish Viewer. Watch the restored pond for 30 minutes to earn Fishwatch.",
+          "The separate Fish Finder achievement requires discovering every species; buying the furnishing does not complete it."
+        ]
+      },
+      {
+        "heading": "Trophy wall",
+        "paragraphs": [
+          "Restore the Trophy Wall to display replica mounts. A mount requires a trophy-weight catch; completing a species’ size records is a separate task."
+        ]
+      }
+    ],
+    "relatedFishIds": [],
+    "relatedEquipmentIds": [],
+    "sources": [
+      {
+        "title": "Community data — Fishwatch and the Fish Viewer",
+        "url": "https://castnchill.unpack.wiki/docs/achievements/viewer-watched/"
+      },
+      {
+        "title": "Community update record — cabin viewer and replica wall",
+        "url": "https://castnchill.unpack.wiki/docs/patches/v1.3.0/"
+      },
+      {
+        "title": "Community data — Fish Finder achievement",
+        "url": "https://castnchill.unpack.wiki/docs/achievements/discover-all-fish/"
+      },
+      {
+        "title": "Official cabin announcement — SteamDB mirror",
+        "url": "https://steamdb.info/patchnotes/23446635/"
+      }
+    ],
+    "keywords": [
+      "Fish Finder",
+      "Fish Viewer",
+      "Fishwatch",
+      "screensaver",
+      "30 minutes",
+      "trophy wall",
+      "replica",
+      "mount"
+    ]
+  },
+  {
+    "id": "completion-route",
+    "title": "Completion requirements",
+    "category": "progression",
+    "summary": "Species, sizes, releases, trophies, and special catches.",
+    "sections": [
+      {
+        "heading": "Collection achievements",
+        "paragraphs": [
+          "Fish Finder: discover every species. Fish Whisperer: catch and release every species. Trophy Hunter: catch every species at trophy weight. The Complete Catch: catch every available size."
+        ]
+      },
+      {
+        "heading": "Special catches",
+        "paragraphs": [
+          "Above Board, Over Achiever, and Whoa, Nelly: catch L, XL, and XXL fish respectively while staying above the water surface.",
+          "Feeding Frenzy: attract five fish simultaneously. Live Bait: have a fish take another fish. The One That Got Away: lose a fish after a two-minute fight.",
+          "For Live Bait, players suggest hooking a small fish near a predator. This does not guarantee a bite."
+        ]
+      }
+    ],
+    "relatedFishIds": [],
+    "relatedEquipmentIds": [],
+    "sources": [
+      {
+        "title": "Official Steam achievement requirements",
+        "url": "https://steamcommunity.com/stats/3483740/achievements/"
+      },
+      {
+        "title": "Official Autumnwood update — fish predation",
+        "url": "https://steamdb.info/patchnotes/19933619/"
+      },
+      {
+        "title": "Official v1.2.4 notes — all-sizes achievement",
+        "url": "https://steamdb.info/patchnotes/22172692/"
+      },
+      {
+        "title": "Community guide — Live Bait technique",
+        "url": "https://castnchill.unpack.wiki/docs/achievements/catch-with-fish/"
+      }
+    ],
+    "keywords": [
+      "achievements",
+      "completion",
+      "100%",
+      "logbook",
+      "release",
+      "all sizes",
+      "Live Bait",
+      "Trophy Hunter"
+    ]
+  },
+  {
+    "id": "companions-and-customisation",
+    "title": "Companions & customization",
+    "category": "progression",
+    "summary": "Companions, Good Friends, appearances, and co-op.",
+    "sections": [
+      {
+        "heading": "Companions",
+        "paragraphs": [
+          "Available companions include several dog breeds and the Maine Coon cat, with colour variants. Supporter Pack companions are labelled in the wardrobe.",
+          "Pat your companion ten times in one session for Good Friends."
+        ]
+      },
+      {
+        "heading": "Appearance & co-op",
+        "paragraphs": [
+          "Use the character customiser to choose an angler appearance, outfit, and hat.",
+          "Local co-op and Steam Remote Play Together are supported."
+        ]
+      }
+    ],
+    "relatedFishIds": [],
+    "relatedEquipmentIds": [],
+    "sources": [
+      {
+        "title": "Community data — companions and colour variants",
+        "url": "https://castnchill.unpack.wiki/docs/companions/"
+      },
+      {
+        "title": "Official Steam achievements — Good Friends",
+        "url": "https://steamcommunity.com/stats/3483740/achievements/"
+      },
+      {
+        "title": "Official Lake Hunkerdown update — character customiser",
+        "url": "https://steamdb.info/patchnotes/20995581/"
+      },
+      {
+        "title": "Co-op update — developer notes reproduced by the community wiki",
+        "url": "https://castnchill.unpack.wiki/docs/patches/v1.2.1/"
+      }
+    ],
+    "keywords": [
+      "companion",
+      "dog",
+      "cat",
+      "pet",
+      "Good Friends",
+      "customise",
+      "outfit",
+      "hat",
+      "co-op"
+    ]
+  },
+  {
+    "id": "edition-and-future-waters",
+    "title": "Version & expansions",
+    "category": "progression",
+    "summary": "Included updates and the status of Eastern Winds.",
+    "sections": [
+      {
+        "heading": "Included content",
+        "paragraphs": [
+          "This catalog covers installed Steam v1.3.0 (160), including Autumnwood Lake, Lake Hunkerdown, and Old Moose Cabin."
+        ]
+      },
+      {
+        "heading": "Eastern Winds",
+        "paragraphs": [
+          "As checked on 11 October 2026, the official Steam page lists Eastern Winds as “To be announced”. Its planned content is excluded from the playable catalog."
+        ]
+      }
+    ],
+    "relatedFishIds": [],
+    "relatedEquipmentIds": [],
+    "sources": [
+      {
+        "title": "Official Old Moose Cabin announcement",
+        "url": "https://steamcommunity.com/games/3483740/announcements/detail/659358246189924927"
+      },
+      {
+        "title": "Official cabin release — SteamDB mirror",
+        "url": "https://steamdb.info/patchnotes/23446635/"
+      },
+      {
+        "title": "Official Eastern Winds Steam listing",
+        "url": "https://store.steampowered.com/app/4001650/Cast_n_Chill__Eastern_Winds/"
+      },
+      {
+        "title": "Community update history",
+        "url": "https://castnchill.unpack.wiki/docs/patches/"
+      }
+    ],
+    "keywords": [
+      "version",
+      "1.3.0",
+      "160",
+      "update",
+      "DLC",
+      "Eastern Winds",
+      "announced",
+      "released"
+    ]
+  }
+]

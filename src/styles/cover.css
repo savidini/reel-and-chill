@@ -1,0 +1,143 @@
+/* The cover pairs the original scene with a compact reference desk. */
+.home-page {
+  max-width: 1392px;
+  margin: auto;
+  padding: 40px 36px 48px;
+}
+.welcome-cover {
+  display: grid;
+  grid-template-columns: minmax(300px, .9fr) minmax(0, 1.35fr);
+  align-items: center;
+  gap: 36px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--line);
+}
+.welcome-heading { min-width: 0; }
+.welcome-heading .eyebrow { color: var(--gold); margin-bottom: 20px; }
+.welcome-heading h1 {
+  font: 40px/1.3 var(--pixel);
+  letter-spacing: 0;
+  white-space: nowrap;
+  margin: 0;
+}
+.welcome-heading h1 span { color: var(--gold); font-size: 24px; }
+.welcome-heading > p { margin: 20px 0 24px; color: var(--muted); font-size: 16px; line-height: 1.7; }
+.home-search-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 52px;
+  padding: 12px 14px;
+  border: 1px solid var(--control-line);
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--muted);
+  text-align: left;
+  font-size: 14px;
+}
+.home-search-button kbd { margin-left: auto; white-space: nowrap; }
+.home-search-button:hover { border-color: var(--gold); color: var(--ink); }
+.guide-stats { display: grid; grid-template-columns: repeat(3, 1fr); margin: 28px 0 0; }
+.guide-stats > div { display: flex; flex-direction: column; gap: 4px; padding: 0 20px; border-left: 1px solid var(--line); }
+.guide-stats > div:first-child { padding-left: 0; border: 0; }
+.guide-stats dt { color: var(--muted); font-size: 13px; }
+.guide-stats dd { order: -1; margin: 0; font-size: 28px; line-height: 1.2; font-weight: 500; font-variant-numeric: tabular-nums; }
+.welcome-scene { min-width: 0; background: var(--panel); padding: 8px 8px 0; border: 1px solid var(--line); border-radius: 8px; }
+.ascii-frame { line-height: 0; }
+.ascii-lake { display: block; width: 100%; height: auto; aspect-ratio: 2; background: #090c18; }
+.scene-toolbar { display: flex; align-items: center; gap: 12px; padding: 10px 4px; line-height: 1.4; min-height: 64px; }
+.scene-toolbar .button { font-size: 13px; padding: 12px 14px; gap: 12px; }
+.scene-caption { color: var(--muted); font-size: 12px; margin-left: auto; }
+.scene-toggle { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 8px; border-radius: 4px; font-size: 13px; color: var(--muted); margin-left: auto; }
+.scene-toggle > span { font-size: 11px; width: 12px; text-align: center; }
+.scene-toggle:hover { background: var(--surface-muted); color: var(--gold); }
+.chapter-index { margin-top: 30px; }
+.chapter-index-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.chapter-index-heading h2 { margin: 0; font-size: 24px; }
+.chapter-index-heading > span { font-size: 13px; color: var(--muted); }
+.chapter-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.chapter-card {
+  min-width: 0;
+  position: relative;
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) 16px;
+  align-items: center;
+  gap: 14px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color 120ms, background 120ms;
+}
+.chapter-card:hover { border-color: var(--gold); background: var(--panel-hover); color: var(--ink); }
+.chapter-card-icon { display: flex; align-items: center; justify-content: center; color: var(--gold); }
+.chapter-card-copy { min-width: 0; position: relative; }
+.chapter-card h3 { font: 500 16px/1.4 var(--sans); letter-spacing: -.01em; margin: 0 0 4px; }
+.chapter-card-count { display: block; font-size: 13px; color: var(--muted); }
+.chapter-card-number { display: none; }
+.chapter-card > svg { color: var(--muted); }
+.chapter-card.illustrated { grid-template-columns: minmax(0, 1fr) 16px; gap: 0; padding: 0; overflow: hidden; }
+.chapter-card-scene { grid-column: 1 / -1; width: 100%; height: 108px; object-fit: cover; image-rendering: pixelated; border-bottom: 1px solid var(--line); }
+.illustrated .chapter-card-copy { padding: 18px 20px; }
+.illustrated h3 { font-size: 20px; padding-right: 20px; }
+.illustrated .chapter-card-number { display: block; position: absolute; top: 22px; right: 4px; color: var(--gold); font: 11px/1.5 var(--mono); }
+.chapter-card.illustrated > svg { margin-left: -16px; }
+
+@container book (max-width: 1080px) {
+  .home-page { padding: 32px 24px 40px; }
+  .welcome-cover { grid-template-columns: minmax(260px, .9fr) minmax(0, 1.2fr); gap: 24px; }
+  .welcome-heading h1 { font-size: 32px; }
+  .welcome-heading h1 span { font-size: 24px; }
+  .home-search-button { font-size: 13px; }
+  .home-search-button kbd, .scene-caption { display: none; }
+  .chapter-card { padding: 16px; gap: 10px; grid-template-columns: 28px minmax(0, 1fr) 16px; }
+  .chapter-card h3 { font-size: 15px; }
+  .illustrated h3 { font-size: 18px; }
+  .illustrated .chapter-card-copy { padding: 16px; }
+  .illustrated .chapter-card-number { display: none; }
+}
+@container book (max-width: 720px) {
+  .welcome-cover { grid-template-columns: 1fr; gap: 26px; }
+  .welcome-heading { display: grid; grid-template-columns: 1fr 220px; gap: 0 24px; }
+  .welcome-heading .eyebrow, .welcome-heading h1, .welcome-heading > p { grid-column: 1; }
+  .welcome-heading > p { margin-bottom: 0; font-size: 15px; }
+  .home-search-button { grid-column: 2; grid-row: 2; align-self: center; }
+  .guide-stats { grid-column: 2; grid-row: 3; margin-top: 20px; align-self: center; }
+  .guide-stats > div { padding: 0 12px; }
+  .guide-stats dd { font-size: 24px; }
+  .chapter-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .chapter-card.illustrated { grid-column: 1 / -1; grid-template-columns: 120px minmax(0, 1fr) 16px; }
+  .chapter-card-scene { grid-column: 1; height: 100%; min-height: 104px; border-bottom: 0; border-right: 1px solid var(--line); }
+  .illustrated .chapter-card-copy { padding: 18px; }
+  .chapter-card.illustrated > svg { margin-left: -12px; }
+}
+@container book (max-width: 600px) {
+  .home-page { padding: 28px 16px 36px; }
+  .welcome-cover { padding-bottom: 28px; gap: 24px; }
+  .welcome-heading { display: block; }
+  .welcome-heading .eyebrow { margin-bottom: 16px; }
+  .welcome-heading > p { margin: 16px 0 20px; }
+  .home-search-button { min-height: 48px; font-size: 15px; }
+  .guide-stats { margin-top: 24px; }
+  .guide-stats > div { padding: 0 20px; }
+  .guide-stats dd { font-size: 26px; }
+  .welcome-scene { padding: 6px 6px 0; }
+  .scene-toolbar { padding: 8px 2px; }
+  .chapter-index { margin-top: 24px; }
+  .chapter-index-heading h2 { font-size: 22px; }
+  .chapter-grid { grid-template-columns: 1fr; gap: 12px; }
+  .chapter-card { padding: 16px; }
+  .chapter-card h3 { font-size: 16px; }
+  .chapter-card.illustrated { grid-template-columns: 96px minmax(0, 1fr) 16px; }
+  .illustrated .chapter-card-copy { padding: 16px; }
+  .illustrated h3 { font-size: 18px; }
+}
+@media print {
+  .home-search-button, .scene-toggle, .scene-caption { display: none; }
+  .home-page { padding: 20px; }
+  .welcome-cover { grid-template-columns: 1fr 1fr; }
+  .chapter-card { break-inside: avoid; }
+}

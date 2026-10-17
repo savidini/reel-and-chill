@@ -1,0 +1,36 @@
+{
+  "name": "reel-and-chill",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --experimental-strip-types tests/guide.test.ts && node --experimental-strip-types tests/assets.test.ts",
+    "data:import": "node scripts/import-game.mjs",
+    "assets:fetch": "node scripts/import-game.mjs --scenes",
+    "data:validate": "node scripts/validate-data.mjs",
+    "test:e2e": "python3 tests/browser_qa.py",
+    "test:smoke": "python3 tests/pages_qa.py"
+  },
+  "dependencies": {
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "typescript": "5.9.3",
+    "vite": "7.3.6"
+  },
+  "description": "Reel & Chill — Your Cast n Chill companion.",
+  "homepage": "https://savidini.github.io/reel-and-chill/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/savidini/reel-and-chill.git"
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  }
+}

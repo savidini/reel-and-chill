@@ -1,0 +1,146 @@
+/* Entry layouts and section navigation. */
+:root { --topbar-height: 72px; }
+.fish-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  grid-template-areas: "heading specimen" "facts specimen";
+  gap: 24px 36px;
+  align-items: start;
+}
+.entry-heading { grid-area: heading; min-width: 0; }
+.entry-heading h1 { font-size: clamp(28px, 3.5cqi, 40px); margin: 0 0 16px; }
+.entry-heading .eyebrow { font-size: 12px; letter-spacing: 1px; margin-bottom: 8px; }
+.variant-link { font-size: 14px; line-height: 1.5; padding-block: 4px; }
+.fish-feature .specimen-large {
+  grid-area: specimen;
+  align-self: stretch;
+  height: auto;
+  min-height: 260px;
+  padding: 32px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.specimen-large > .pixel-art { width: 100%; height: 160px; filter: drop-shadow(3px 4px var(--sprite-shadow)); }
+.specimen-large .specimen-rule { bottom: 24px; left: 15%; width: 70%; }
+.fish-facts { grid-area: facts; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 24px; padding: 0; margin: 0; }
+.fish-facts > div { min-width: 0; padding: 12px 0; border-top: 1px solid var(--line); }
+.fish-facts dt { font-size: 13px; line-height: 1.5; color: var(--muted); margin-bottom: 6px; }
+.fish-facts dd { font-size: 16px; line-height: 1.5; margin: 0; font-variant-numeric: tabular-nums; }
+.fish-facts dd small { display: block; font-size: 13px; line-height: 1.5; color: var(--muted); margin-top: 4px; }
+.fish-facts .trophy-fact { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: baseline; }
+.trophy-fact dt { margin: 0; }
+.entry-nav { display: flex; align-items: center; gap: 8px; position: sticky; top: var(--topbar-height); z-index: 20; background: var(--paper); border-block: 1px solid var(--line); padding: 6px 0; margin-top: 28px; }
+.entry-nav > span { font-size: 13px; color: var(--muted); margin-right: 12px; }
+.entry-nav button { min-height: 44px; border-radius: 5px; padding: 8px 12px; font-size: 14px; color: var(--link); white-space: nowrap; }
+.entry-nav button:hover { background: var(--selected-bg); color: var(--ink); }
+.entry-nav button:focus-visible { outline-offset: -2px; }
+.detail-body h2[id] { scroll-margin-top: 72px; }
+.detail-section > .section-title, .tackle-suggestion > .section-title { margin-top: 28px; }
+.detail-body .small-print { font-size: 14px; line-height: 1.7; }
+.detail-body .detail-columns { margin: 20px 0 28px; }
+.detail-body .detail-columns > section > p { font-size: 16px; line-height: 1.7; }
+.detail-body .requirements { font-size: 15px; line-height: 1.8; }
+.detail-body .requirement-tail { font-size: 14px; }
+.access-note { font-size: 15px; }
+.access-note h4 { font: 500 16px/1.5 var(--sans); margin: 18px 0 6px; }
+.access-note p { margin-bottom: 8px; }
+.legend-callout { display: flex; align-items: flex-start; gap: 14px; border: 1px solid var(--gold-line); border-left: 3px solid var(--gold-line); border-radius: 6px; padding: 16px 20px; margin: 0 0 20px; background: var(--gold-bg); }
+.legend-callout > svg { color: var(--gold); margin-top: 3px; }
+.legend-callout .eyebrow { color: var(--gold); font-size: 11px; letter-spacing: .7px; margin-bottom: 4px; }
+.legend-callout h3 { color: var(--gold); font-size: 22px; margin-bottom: 6px; }
+.legend-callout p { color: var(--text-secondary); font-size: 15px; line-height: 1.7; margin: 0 0 8px; }
+.legend-callout p:last-child { margin-bottom: 0; }
+.conditions-table th { font-size: 13px; }
+.conditions-table td { font-size: 15px; }
+.weight-details summary { min-height: 40px; font-size: 13px; }
+.tackle-suggestion { margin: 28px 0; }
+.size-choice { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--muted); }
+.size-choice select { min-width: 76px; min-height: 44px; font-size: 14px; }
+.setup-columns { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; margin-bottom: 12px; }
+.setup-columns > div { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 16px 20px; min-width: 0; }
+.setup-columns > div > h3 { font-size: 16px; margin-bottom: 4px; }
+.setup-item { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+.setup-item:last-child { border-bottom: 0; padding-bottom: 4px; }
+.setup-item > .pixel-art { width: 60px; height: 48px; }
+.setup-item > div { flex: 1; min-width: 0; }
+.setup-item strong { display: block; font-size: 16px; font-weight: 500; line-height: 1.4; }
+.setup-item small { display: block; font-size: 13px; color: var(--muted); margin-top: 5px; line-height: 1.6; }
+.traits > div { font-size: 14px; }
+.equipment-detail-head { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); grid-template-areas: "heading artwork"; gap: 36px; align-items: center; }
+.equipment-art.large { grid-area: artwork; border: 1px solid var(--line); border-radius: 8px; background: var(--specimen-bg); height: 220px; padding: 28px; margin: 0; }
+.equipment-art.large > .pixel-art { width: 100%; max-width: 100%; height: 160px; }
+.equipment-art.large.lure > .pixel-art { max-width: 128px; height: 110px; }
+.upgrade-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.upgrade-grid > section { min-width: 0; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); padding: 20px; }
+.upgrade-grid h3 { font-size: 18px; margin-bottom: 8px; }
+.upgrade-grid th { font-size: 13px; white-space: normal; }
+.upgrade-grid td { font-size: 15px; padding-block: 12px; }
+.upgrade-grid td:first-child { white-space: nowrap; }
+.upgrade-grid th:last-child, .upgrade-grid td:last-child { text-align: right; padding-right: 0; }
+.upgrade-grid .small-print { margin: 0; }
+.equipment-card-copy { min-width: 0; }
+.equipment-card-copy > p { font-size: 14px; color: var(--muted); margin: 12px 0 0; }
+.equipment-card-copy .eyebrow { font-size: 12px; letter-spacing: .8px; }
+.equipment-card-copy h3 { font-size: 20px; }
+.equipment-card-copy .equipment-meta { flex-wrap: wrap; font-size: 14px; }
+@media (max-width: 980px) { :root { --topbar-height: 64px; } }
+@container book (max-width: 900px) {
+  .fish-feature { gap: 20px 24px; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
+  .fish-facts { gap: 0 16px; }
+  .fish-facts .trophy-fact { gap: 16px; }
+  .fish-feature .specimen-large { padding: 20px; }
+  .equipment-detail-head { gap: 24px; }
+  .setup-columns { gap: 16px; }
+  .setup-columns > div { padding: 16px; }
+  .setup-item { gap: 12px; }
+  .setup-item > .pixel-art { width: 48px; }
+  .upgrade-grid { grid-template-columns: 1fr; }
+}
+@container book (max-width: 650px) {
+  .fish-feature { grid-template-areas: "heading specimen" "facts facts"; grid-template-columns: minmax(0, 1fr) minmax(108px, .55fr); gap: 16px; }
+  .fish-feature .specimen-large { align-self: start; min-height: 144px; height: 144px; padding: 16px; }
+  .specimen-large > .pixel-art { height: 88px; }
+  .specimen-large .specimen-rule { bottom: 16px; left: 12%; width: 76%; }
+  .entry-heading h1 { font-size: 28px; margin-bottom: 12px; }
+  .entry-heading .tag-line { gap: 8px; }
+  .variant-link { font-size: 13px; }
+  .entry-nav { gap: 4px; margin-top: 20px; }
+  .entry-nav > span { display: none; }
+  .entry-nav button { padding-inline: 10px; }
+  .equipment-detail-head { grid-template-columns: minmax(0, 1fr) minmax(108px, .6fr); gap: 16px; }
+  .equipment-art.large { height: 144px; padding: 12px; }
+  .equipment-art.large > .pixel-art { height: 108px; }
+  .equipment-art.large.lure > .pixel-art { height: 80px; }
+  .setup-columns { grid-template-columns: 1fr; }
+  .legend-callout { padding: 14px; gap: 10px; }
+  .legend-callout h3 { font-size: 21px; }
+  .legend-callout p { font-size: 14px; }
+  .size-choice { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .equipment-grid { grid-template-columns: 1fr; }
+  .equipment-card { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 16px; padding: 16px; }
+  .equipment-card .equipment-art { height: 112px; margin: 0; }
+  .equipment-card .equipment-art > .pixel-art { width: 90%; height: 88px; }
+  .equipment-card .equipment-art.lure > .pixel-art { height: 64px; }
+  .equipment-card-copy .eyebrow { margin-bottom: 4px; }
+  .equipment-card-copy h3 { font-size: 19px; margin: 0 0 12px; }
+  .equipment-card-copy .equipment-meta { padding-top: 10px; gap: 8px; }
+  .equipment-card-copy > p { margin-top: 8px; font-size: 13px; }
+}
+@media (max-width: 520px) {
+  .conditions-table .condition-label { font-size: 13px; }
+  .conditions-table .time-cell { font-size: 14px; }
+  .conditions-table .weight-details summary { font-size: 13px; min-height: 44px; }
+  .conditions-table .badge { font-size: 12px; }
+  .upgrade-grid > section { padding: 16px; }
+  .upgrade-grid td { font-size: 14px; }
+}
+@media (max-width: 360px) {
+  .entry-heading h1 { font-size: 25px; }
+  .fish-feature { grid-template-columns: minmax(0, 1fr) 104px; gap: 16px 12px; }
+  .equipment-card { grid-template-columns: 76px minmax(0, 1fr); gap: 12px; padding: 12px; }
+  .entry-nav button { padding-inline: 8px; }
+}
+@media print {
+  .entry-nav { display: none; }
+  .fish-feature, .equipment-detail-head, .upgrade-grid > section { break-inside: avoid; }
+}

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f2eb" />
+    <style>
+      :where(html) { background: #f5f2eb; color-scheme: light; }
+      :where(html[data-theme="dark"]) { background: #192321; color-scheme: dark; }
+      :where(html[data-design="journal"]) { background: #f6f2e9; }
+      :where(html[data-design="journal"][data-theme="dark"]) { background: #22241f; }
+      :where(html[data-design="expedition"]) { background: #f4f3ec; }
+      :where(html[data-design="expedition"][data-theme="dark"]) { background: #172426; }
+      :where(html[data-design="sonar"]) { background: #f8f9fb; }
+      :where(html[data-design="sonar"][data-theme="dark"]) { background: #111720; }
+      :where(html[data-design="studio"]) { background: #e8e1d4; }
+      :where(html[data-design="studio"][data-theme="dark"]) { background: #212724; }
+    </style>
+    <script>
+      // Apply the saved appearance before the first paint, including loading states.
+      (() => {
+        let preference = 'system';
+        try { preference = localStorage.getItem('cast-guide-theme') || 'system'; } catch {}
+        const theme = preference === 'light' || preference === 'dark'
+          ? preference : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = theme;
+        let design = 'original';
+        try { design = localStorage.getItem('cast-guide-design') || 'original'; } catch {}
+        if (!['original', 'journal', 'expedition', 'sonar', 'studio'].includes(design)) design = 'original';
+        document.documentElement.dataset.design = design;
+        document.querySelector('meta[name="theme-color"]').content = getComputedStyle(document.documentElement).backgroundColor;
+      })();
+    </script>
+    <meta name="description" content="Reel &amp; Chill — Your Cast n Chill companion. Find fish, legendary encounters, catch conditions, tackle, and unlocks." />
+    <meta property="og:title" content="Reel &amp; Chill" />
+    <meta property="og:description" content="Your Cast n Chill companion." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://savidini.github.io/reel-and-chill/" />
+    <title>Reel &amp; Chill · Your Cast n Chill companion.</title>
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
