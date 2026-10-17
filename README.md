@@ -2,7 +2,7 @@
 
 **Your Cast n Chill companion.**
 
-[Open Reel & Chill](https://savidini.github.io/reel-and-chill/) · [Source on GitHub](https://github.com/savidini/reel-and-chill)
+[Open Reel & Chill](https://savidini.de/reel-and-chill/) · [Source on GitHub](https://github.com/savidini/reel-and-chill)
 
 An illustrated handbook for the Steam edition of **Cast n Chill**, with five selectable designs and actual game sprites. The Original design keeps its pixel wordmark, warm paper and dark pine themes, and the [Alpine Dawn](https://ascii.rest/alpine-dawn/) scene from ascii.rest. No accounts. Pocket includes a manual checklist saved only in this browser; it never reads or changes game saves.
 
@@ -62,7 +62,7 @@ Production previews run at **http://127.0.0.1:4173/reel-and-chill/**. Opening `d
 
 ## GitHub Pages
 
-Pushes to `main` and manual runs of [the deployment workflow](.github/workflows/pages.yml) validate the committed data, run unit tests, build with Node 24, and run headless Playwright smoke checks before publishing `dist/`. Pages uses GitHub Actions as its source and the `github-pages` environment. The public URL is **https://savidini.github.io/reel-and-chill/**.
+Pushes to `main` and manual runs of [the deployment workflow](.github/workflows/pages.yml) validate the committed data, run unit tests, build with Node 24, and run headless Playwright smoke checks before publishing `dist/`. Pages uses GitHub Actions as its source and the `github-pages` environment. The public URL is **https://savidini.de/reel-and-chill/**. The original `https://savidini.github.io/reel-and-chill/` address redirects here because the account’s personal Pages site uses `savidini.de`. This project inherits that domain; it has no separate custom-domain configuration.
 
 [Vite's project-site guidance](https://vite.dev/guide/static-deploy.html#github-pages) is implemented in `vite.config.ts`: development uses `/`, while builds and previews use `/reel-and-chill/`. `src/assets.ts` resolves catalog images, time icons, scenes, and licence URLs beneath that base without changing the catalog schema. Vite handles bundled font and favicon paths. Hash routes such as `#/fish/northern-pike` work on reload without server rewrites. The workflow follows [GitHub's custom Pages workflow requirements](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
 
@@ -134,7 +134,7 @@ The QA script launches **headless Chromium in a fresh, isolated context**, serve
 `npm run test:smoke` is the focused deployment gate: it checks branding in all five designs at desktop and phone widths, both themes, detail reloads, search/Back, saved preferences/checklist, catalog retry, and the contents of every bundled file. To repeat it against the public deployment:
 
 ```sh
-npm run test:smoke -- --url https://savidini.github.io/reel-and-chill/
+npm run test:smoke -- --url https://savidini.de/reel-and-chill/
 ```
 
 Run `npm run test:e2e -- --designs-only` for the independent interfaces. It checks each interface's primary task, desktop/mobile detail views, responsive layouts from 320–1920px, both appearances, text contrast, popover reachability in short windows, and saved design/units/checklist state. The Original suite continues to check the complete reference. `npm run test:e2e -- --design-screenshots` provides a shorter visual pass. Use `--design-tasks` for interaction checks or `--design-controls` for popovers and keyboard design switching. Screenshots and JSON evidence go to ignored `artifacts/redesigns/`.
